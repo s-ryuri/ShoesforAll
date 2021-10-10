@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "565770065097",
+    "project_id": "myshoes-945bb",
+    "storage_bucket": "myshoes-945bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565770065097:android:d2bfde613aab19d812a918",
+        "android_client_info": {
+          "package_name": "com.cookandroid.shoesforall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "565770065097-ras64cra3is3ich0a63eufk6bnbpr6t5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATi_Kim2oeSS2-ON1VByk9866d0-tKLtE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "565770065097-ras64cra3is3ich0a63eufk6bnbpr6t5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

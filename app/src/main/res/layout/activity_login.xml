@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="16dp"
+    tools:context=".LoginActivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="117dp"
+        android:layout_marginBottom="36dp"
+        android:gravity="center_horizontal"
+        android:letterSpacing="-0.04"
+        android:text="로그인"
+        android:textColor="#2c2929"
+        android:textSize="36sp"
+        android:textStyle="normal" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_20"
+        android:layout_marginBottom="8dp"
+        android:padding="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:inputType="textWebEmailAddress"
+            android:hint="아이디" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_20"
+        android:padding="12dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:maxLength="20"
+            android:background="@null"
+            android:hint="비밀번호" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!-- 아이디 비밀번호 찾기 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/findId"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:layout_width="68dp"
+            android:layout_height="20dp"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="#222222"
+            android:lineSpacingExtra="4sp"
+            android:gravity="end"
+            android:text="아이디 찾기" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#969696"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="2dp"/>
+
+        <TextView
+            android:id="@+id/findPw"
+            android:layout_width="82dp"
+            android:layout_height="20dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:textStyle="normal"
+            android:textSize="12sp"
+            android:textColor="#222222"
+            android:lineSpacingExtra="4sp"
+            android:gravity="end"
+            android:text="비밀번호 찾기" />
+    </LinearLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/emailLoginButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:backgroundTint="@color/colorPrimary"
+        app:cardCornerRadius="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="4sp"
+            android:text="로그인"
+            android:textColor="#ffffff"
+            android:textSize="15sp"
+            android:textStyle="normal" />
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/emailSignupButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="4sp"
+            android:text="회원가입"
+            android:textSize="15sp"
+            android:textStyle="normal" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/googleLoginButton"
+        android:layout_width="match_parent"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="24dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_login_google_4"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"></ImageView>
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            android:lineSpacingExtra="4sp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center"
+            android:text="구글로 로그인"/>
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

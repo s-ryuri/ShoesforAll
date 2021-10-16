@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/activity_login.xml" value="0.2046875" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/activity_shoes_home.xml" value="0.5" />
         <entry key="app/src/main/res/drawable/icon_login_google_4.xml" value="0.1359375" />
         <entry key="app/src/main/res/drawable/rectangle_20.xml" value="0.1359375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.11979166666666667" />

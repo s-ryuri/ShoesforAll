@@ -20,6 +20,7 @@ public class LoginActivity extends AppCompatActivity {
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //로그인 해서 shoes_home으로 감
                 Intent intent = new Intent(LoginActivity.this,shoes_home.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);

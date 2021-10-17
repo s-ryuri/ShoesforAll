@@ -5,7 +5,13 @@
       <map>
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/activity_login.xml" value="0.2046875" />
-        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/activity_shoes_home.xml" value="0.5" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/activity_shoes_home.xml" value="0.4445701357466063" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/brand.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/home.xml" value="0.25" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/like.xml" value="0.33" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/menu_search.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/mypage.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/menu/bottom_menu.xml" value="0.36614583333333334" />
         <entry key="app/src/main/res/drawable/icon_login_google_4.xml" value="0.1359375" />
         <entry key="app/src/main/res/drawable/rectangle_20.xml" value="0.1359375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.11979166666666667" />

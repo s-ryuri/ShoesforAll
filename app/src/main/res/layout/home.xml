@@ -6,10 +6,53 @@
     android:paddingRight="12dp"
     android:layout_height="match_parent">
 
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ultra_boost"
-        android:id="@+id/ultra_image"
-        />
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunitosans_black"
+                android:textStyle="bold"
+                android:textSize="40sp"
+                android:textColor="#171717"
+                android:letterSpacing="0.15"
+                android:text="categories"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ultra_boost"
+                android:id="@+id/ultra_image"
+                />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ultra_boost"
+                android:id="@+id/ultra_image1"
+                />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ultra_boost"
+                android:id="@+id/ultra_image2"
+                />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ultra_boost"
+                android:id="@+id/ultra_image3"
+                />
+        </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>

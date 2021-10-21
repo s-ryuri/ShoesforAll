@@ -27,7 +27,7 @@ public class shoes_home extends AppCompatActivity {
         setContentView(R.layout.activity_shoes_home);
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottomNavi);
-
+        bottomNavigationView.setSelectedItemId(R.id.home_btn);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

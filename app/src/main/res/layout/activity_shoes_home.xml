@@ -13,12 +13,13 @@
         android:layout_height="wrap_content"
         android:padding="12dp"
         android:orientation="horizontal">
+
         <ImageButton
             android:id="@+id/menu_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#00FFFFFF"
-            android:src="@drawable/ic_baseline_add_alert_24" />
+            android:src="@drawable/ic_bell_icon" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@+id/shopping_btn"
             android:backgroundTint="#00FFFFFF"
-            android:src="@drawable/ic_baseline_search_24" />
+            android:src="@drawable/ic_search_icon" />
 
         <ImageButton
             android:id="@+id/shopping_btn"
@@ -46,7 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:backgroundTint="#00FFFFFF"
-            android:src="@drawable/ic_baseline_shopping_bag_24" />
+            android:src="@drawable/ic_shoppingbag_icon" />
 
     </RelativeLayout>
 

@@ -27,8 +27,8 @@
             android:layout_alignBaseline="@+id/menu_btn"
             android:layout_centerInParent="true"
             android:fontFamily="@font/nanumsquareroundb"
-            android:letterSpacing="0.16"
 
+            android:letterSpacing="0.1"
             android:text="모두의 런닝"
             android:textColor="#161616"
             android:textSize="22sp" />

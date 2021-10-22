@@ -20,57 +20,133 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="12dp"
+                android:gravity="center"
                 android:paddingRight="12dp"
                 android:orientation="vertical">
                 <RelativeLayout
                     android:orientation="horizontal"
-                    android:id="@+id/home_relative"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/nunitosans_black"
-                        android:textStyle="bold"
-                        android:textSize="20sp"
-                        android:textColor="#171717"
+                        android:layout_centerVertical="true"
                         android:letterSpacing="0.15"
-                        android:text="categories"/>
+                        android:text="Categories"
+                        android:textColor="#171717"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <ImageButton
+                        android:id="@+id/app_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:backgroundTint="#00FFFFFF"
-                        android:src="@drawable/ic_apps_icon"/>
+                        android:src="@drawable/ic_apps_icon" />
                 </RelativeLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginBottom="21dp"
+                    android:layout_height="wrap_content">
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="86dp"
+                        android:background="#161616"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="86dp"
+                        android:background="#555555"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="86dp"
+                        android:background="#53F2A8"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="86dp"
+                        android:background="#1600A9"/>
+                </LinearLayout>
+                <RelativeLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunitosans_black"
+                        android:layout_centerVertical="true"
+                        android:letterSpacing="0.15"
+                        android:text="Today's Shoes"
+                        android:textColor="#171717"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <ImageButton
+                        android:id="@+id/today_app_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:backgroundTint="#00FFFFFF"
+                        android:src="@drawable/ic_apps_icon" />
+                </RelativeLayout>
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ultra_boost"
+                    android:backgroundTint="#FFFFFF"
                     android:id="@+id/ultra_image"
                     />
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ultra_boost"
+                    android:backgroundTint="#FFFFFF"
                     android:id="@+id/ultra_image1"
                     />
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ultra_boost"
+                    android:backgroundTint="#FFFFFF"
                     android:id="@+id/ultra_image2"
                     />
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ultra_boost"
+                    android:backgroundTint="#FFFFFF"
                     android:id="@+id/ultra_image3"
                     />
-
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ultra_boost"
+                    android:backgroundTint="#FFFFFF"
+                    android:id="@+id/ultra_image4"
+                    />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ultra_boost"
+                    android:backgroundTint="#FFFFFF"
+                    android:id="@+id/ultra_image5"
+                    />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ultra_boost"
+                    android:backgroundTint="#FFFFFF"
+                    android:id="@+id/ultra_image6"
+                    />
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

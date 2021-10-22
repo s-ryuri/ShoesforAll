@@ -7,7 +7,10 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.text.method.Touch;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -27,11 +30,6 @@ public class shoes_home extends AppCompatActivity {
     private long backBtnTime = 0;
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
     public void onBackPressed() {
         //뒤로가기 기능 활성화
         long curTime = System.currentTimeMillis(); //현재 시간을 밀리초로
@@ -47,6 +45,7 @@ public class shoes_home extends AppCompatActivity {
         }
 
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +85,9 @@ public class shoes_home extends AppCompatActivity {
         menu_search = new menu_fragment();
         mypage = new mypage_fragment();
         setFrag(2);
+
+
+
     }
     //fragment 교체 실행문
     private void setFrag(int n){

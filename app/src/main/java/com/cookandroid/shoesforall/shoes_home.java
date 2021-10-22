@@ -2,11 +2,13 @@ package com.cookandroid.shoesforall;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -21,6 +23,31 @@ public class shoes_home extends AppCompatActivity {
     private like_fragment like;
     private menu_fragment menu_search;
     private mypage_fragment mypage;
+
+    private long backBtnTime = 0;
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public void onBackPressed() {
+        //뒤로가기 기능 활성화
+        long curTime = System.currentTimeMillis(); //현재 시간을 밀리초로
+        long gapTime = curTime - backBtnTime; //시간 간격
+
+        if(gapTime >= 0 && gapTime <= 2000){
+            ActivityCompat.finishAffinity(this); //액티비티 종료
+            System.exit(0); // 프로세스 종료
+        }else{
+            //한 번 눌렀을 때
+            backBtnTime = curTime; //현재 시간으로
+            Toast.makeText(getApplicationContext(),"한 번 더 누르면 종료됩니다.!",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

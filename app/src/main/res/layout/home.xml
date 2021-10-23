@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="#FFFFFFFF"
     android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
+
         android:orientation="vertical"
         tools:context=".MainActivity">
         <LinearLayout
@@ -31,7 +33,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunitosans_black"
+                        android:fontFamily="@font/nunitosans_light"
                         android:layout_centerVertical="true"
                         android:letterSpacing="0.15"
                         android:text="Categories"
@@ -82,7 +84,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunitosans_black"
+                        android:fontFamily="@font/nunitosans_regular"
                         android:layout_centerVertical="true"
                         android:letterSpacing="0.15"
                         android:text="Today's Shoes"

@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/activity_detail_page.xml" value="0.23034188034188033" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/activity_login.xml" value="0.2046875" />
-        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/activity_shoes_home.xml" value="0.4445701357466063" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/activity_main.xml" value="0.23247863247863249" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/activity_shoes_home.xml" value="0.25" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/brand.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/home.xml" value="0.25" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/like.xml" value="0.33" />

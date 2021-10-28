@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bag_btn"
+        android:title="장바구니 담기"
+        android:enabled="true">
+    </item>
+    <item
+        android:id="@+id/buy_btn"
+        android:title="구매하기"
+        android:enabled="true">
+    </item>
+</menu>

@@ -34,10 +34,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:fontFamily="@font/nunitosans_light"
-                        android:letterSpacing="0.1"
+                        android:letterSpacing="0.05"
                         android:text="Categories"
                         android:textColor="#171717"
-                        android:textSize="20sp"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <ImageButton
@@ -54,29 +54,36 @@
                     android:layout_marginTop="21dp"
                     android:layout_marginBottom="21dp"
                     android:layout_height="wrap_content">
+
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:onClick="onClick"
-                        android:background="?attr/selectableItemBackgroundBorderless"
                         android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="86dp"
-                        android:src="@drawable/ic_bell_icon"/>
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="onClick"
+                        android:src="" />
+
                     <de.hdodenhof.circleimageview.CircleImageView
-                        android:onClick="onClick"
+                        android:layout_width="0dp"
+                        android:layout_height="86dp"
+                        android:layout_weight="1"
                         android:background="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="onClick"
+                        android:src="@drawable/ic_nike_icon" />
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="86dp"/>
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
                         android:layout_height="86dp"
-                        android:background="#53F2A8"/>
-                    <View
-                        android:layout_width="0dp"
                         android:layout_weight="1"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="onClick"
+                        android:src="@drawable/ic_bell_icon" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="0dp"
                         android:layout_height="86dp"
-                        android:background="#1600A9"/>
+                        android:layout_weight="1"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:onClick="onClick"
+                        android:src="@drawable/ic_bell_icon" />
                 </LinearLayout>
                 <RelativeLayout
                     android:orientation="horizontal"
@@ -88,7 +95,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:fontFamily="@font/nunitosans_regular"
-                        android:letterSpacing="0.05"
+                        android:letterSpacing="0.04"
                         android:text="Today's Shoes"
                         android:textColor="#171717"
                         android:textSize="20sp"

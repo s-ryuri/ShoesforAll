@@ -54,16 +54,19 @@
                     android:layout_marginTop="21dp"
                     android:layout_marginBottom="21dp"
                     android:layout_height="wrap_content">
-                    <View
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:onClick="onClick"
+                        android:background="?attr/selectableItemBackgroundBorderless"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="86dp"
-                        android:background="#161616"/>
-                    <View
+                        android:src="@drawable/ic_bell_icon"/>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:onClick="onClick"
+                        android:background="?attr/selectableItemBackgroundBorderless"
                         android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:layout_height="86dp"
-                        android:background="#555555"/>
+                        android:layout_height="86dp"/>
                     <View
                         android:layout_width="0dp"
                         android:layout_weight="1"

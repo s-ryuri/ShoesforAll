@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,20 +23,22 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
 public class home_fragment extends Fragment {
     private View view;
 
-    private TextView tv_btn;
+
     private FirebaseFirestore db;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Shoes> arrayList;
     private ProgressDialog progressDialog;
-    private ImageButton homeimg_btn;
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
+
 
     @Nullable
     @Override
@@ -47,17 +50,17 @@ public class home_fragment extends Fragment {
         progressDialog.setMessage("로딩중");
         progressDialog.show();
 
-        homeimg_btn = (ImageButton) view.findViewById(R.id.homeimg_btn);
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
 
-        layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
+
         arrayList = new ArrayList<Shoes>();
 
         db = FirebaseFirestore.getInstance();
 
         adapter = new CustomAdapter(arrayList,getActivity());
+        layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
         EventChangeListener();
@@ -78,7 +81,6 @@ public class home_fragment extends Fragment {
                         }
                         for(DocumentChange dc : value.getDocumentChanges()){
                             if(dc.getType() == DocumentChange.Type.ADDED){
-
                                 arrayList.add(dc.getDocument().toObject(Shoes.class));
 
                             }
@@ -89,5 +91,6 @@ public class home_fragment extends Fragment {
                         }
                     }
                 });
+
     }
 }

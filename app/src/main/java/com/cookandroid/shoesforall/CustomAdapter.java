@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     private ArrayList<Shoes> arrayList;
     private Context context;
+    private String TAG;
 
     public CustomAdapter(ArrayList<Shoes> arrayList, Context context) {
         this.arrayList = arrayList;
@@ -46,10 +48,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
         Shoes shoes = arrayList.get(position);
         Glide.with(holder.itemView).load(shoes.getImage()).into(holder.homeimg_btn);
+
         holder.brand_text.setText(arrayList.get(position).getBrand());
+        holder.brand_text.setVisibility(View.GONE);
+
         holder.description_text.setText(arrayList.get(position).getDescription());
+        holder.description_text.setVisibility(View.GONE);
+
         holder.information_text.setText(arrayList.get(position).getInformation());
+        holder.information_text.setVisibility(View.GONE);
+
         holder.price_text.setText(arrayList.get(position).getPrice());
+        holder.price_text.setVisibility(View.GONE);
 
     }
 
@@ -60,30 +70,36 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     public class CustomViewHolder extends RecyclerView.ViewHolder{
 
-        ImageButton homeimg_btn;
+        ImageView homeimg_btn;
         TextView brand_text,description_text,information_text,name_text,price_text;
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
+
             this.homeimg_btn = itemView.findViewById(R.id.homeimg_btn);
-
-            itemView.setClickable(true);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int pos = getAdapterPosition();
-                    if(pos != RecyclerView.NO_POSITION){
-                        Intent intent = new Intent(context,detail_page.class).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        intent.putExtra("TEXT",arrayList.get(pos).getPrice());
-                        context.startActivity(intent);
-                    }
-                }
-            });
             this.brand_text = itemView.findViewById(R.id.brand_text);
             this.description_text = itemView.findViewById(R.id.description_text);
             this.information_text = itemView.findViewById(R.id.information_text);
             this.name_text = itemView.findViewById(R.id.name_text);
             this.price_text = itemView.findViewById(R.id.price_text);
+
+            itemView.setClickable(true);
+            itemView.setOnClickListener(v -> {
+                int pos = getAdapterPosition();
+                if(pos != RecyclerView.NO_POSITION){
+                    Intent intent = new Intent(context,detail_page.class);
+
+                    intent.putExtra("IMAGE",arrayList.get(pos).getImage());
+
+                    intent.putExtra("PRICE",arrayList.get(pos).getPrice());
+                    intent.putExtra("BRAND",arrayList.get(pos).getBrand());
+                    intent.putExtra("DESCRIPTION",arrayList.get(pos).getDescription());
+                    intent.putExtra("INFORMATION",arrayList.get(pos).getInformation());
+                    intent.putExtra("NAME",arrayList.get(pos).getName());
+
+                    context.startActivity(intent);
+                }
+            });
+
         }
     }
 }

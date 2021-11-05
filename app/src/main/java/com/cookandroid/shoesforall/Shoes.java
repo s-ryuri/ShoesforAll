@@ -7,7 +7,6 @@ public class Shoes {
     private String information;
     private String name;
     private String price;
-
     public Shoes() {
     }
 

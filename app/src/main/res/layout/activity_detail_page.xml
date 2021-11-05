@@ -59,47 +59,57 @@
                     android:backgroundTint="#00FFFFFF"
                     android:src="@drawable/ic_shoppingbag_icon" />
             </RelativeLayout>
-            <ViewFlipper
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/viewFlipper1">
+                android:gravity="center"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_launcher_background"
+                    android:id="@+id/detail_image"/>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:background="#ff0000">
-                    <Button
-                        android:id="@+id/btn1"
-                        android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content"
-                        android:text="버튼1"
-                        android:layout_gravity="center"/>
+                        android:id="@+id/shoesName_txt"
+                        android:text="신발이름"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/price_txt"
+                        android:gravity="right"
+                        android:text="가격"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:background="#ff0000">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
 
-                    <Button
+                        android:layout_gravity="center"
+                        android:text="DESCRIPTION"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/description_txt"
+                        android:layout_height="wrap_content"
+                        android:text="설명란"/>
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="버튼2"
-                        android:layout_gravity="center"/>
+                        android:id="@+id/information_txt"
+                        android:text="info"/>
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:background="#ff0000">
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="버튼3"
-                        android:layout_gravity="center"/>
-                </LinearLayout>
-            </ViewFlipper>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

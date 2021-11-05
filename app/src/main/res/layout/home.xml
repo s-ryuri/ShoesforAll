@@ -61,7 +61,7 @@
                         android:layout_weight="1"
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:onClick="onClick"
-                        android:src="" />
+                         />
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:layout_width="0dp"
@@ -109,55 +109,12 @@
                         android:backgroundTint="#00FFFFFF"
                         android:src="@drawable/ic_apps_icon" />
                 </RelativeLayout>
-                <ImageButton
+                <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ultra_boost"
-                    android:backgroundTint="#FFFFFF"
-                    android:id="@+id/ultra_image"
-                    />
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ultra_boost"
-                    android:backgroundTint="#FFFFFF"
-                    android:id="@+id/ultra_image1"
-                    />
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ultra_boost"
-                    android:backgroundTint="#FFFFFF"
-                    android:id="@+id/ultra_image2"
-                    />
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ultra_boost"
-                    android:backgroundTint="#FFFFFF"
-                    android:id="@+id/ultra_image3"
-                    />
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ultra_boost"
-                    android:backgroundTint="#FFFFFF"
-                    android:id="@+id/ultra_image4"
-                    />
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ultra_boost"
-                    android:backgroundTint="#FFFFFF"
-                    android:id="@+id/ultra_image5"
-                    />
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ultra_boost"
-                    android:backgroundTint="#FFFFFF"
-                    android:id="@+id/ultra_image6"
-                    />
+                    android:id="@+id/recyclerView">
+
+                </androidx.recyclerview.widget.RecyclerView>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"

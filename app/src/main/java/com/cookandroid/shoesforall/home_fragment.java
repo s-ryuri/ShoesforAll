@@ -35,6 +35,8 @@ public class home_fragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Shoes> arrayList;
     private ProgressDialog progressDialog;
+    private ImageButton homeimg_btn;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -42,11 +44,13 @@ public class home_fragment extends Fragment {
 
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setCancelable(false);
-        progressDialog.setMessage("Fetching data");
+        progressDialog.setMessage("로딩중");
         progressDialog.show();
 
+        homeimg_btn = (ImageButton) view.findViewById(R.id.homeimg_btn);
         recyclerView = view.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
+
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         arrayList = new ArrayList<Shoes>();
@@ -55,6 +59,7 @@ public class home_fragment extends Fragment {
 
         adapter = new CustomAdapter(arrayList,getActivity());
         recyclerView.setAdapter(adapter);
+
         EventChangeListener();
 
         return view;

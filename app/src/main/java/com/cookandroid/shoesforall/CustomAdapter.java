@@ -2,32 +2,20 @@ package com.cookandroid.shoesforall;
 
 import android.content.Context;
 import android.content.Intent;
-import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomViewHolder> {
 
     private ArrayList<Shoes> arrayList;
     private Context context;
-    private String TAG;
 
     public CustomAdapter(ArrayList<Shoes> arrayList, Context context) {
         this.arrayList = arrayList;
@@ -89,7 +77,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
                     Intent intent = new Intent(context,detail_page.class);
 
                     intent.putExtra("IMAGE",arrayList.get(pos).getImage());
-
                     intent.putExtra("PRICE",arrayList.get(pos).getPrice());
                     intent.putExtra("BRAND",arrayList.get(pos).getBrand());
                     intent.putExtra("DESCRIPTION",arrayList.get(pos).getDescription());

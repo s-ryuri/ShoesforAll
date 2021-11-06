@@ -23,7 +23,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -37,7 +37,6 @@ public class home_fragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Shoes> arrayList;
     private ProgressDialog progressDialog;
-    private FirebaseStorage storage = FirebaseStorage.getInstance();
 
 
     @Nullable
@@ -57,7 +56,6 @@ public class home_fragment extends Fragment {
         arrayList = new ArrayList<Shoes>();
 
         db = FirebaseFirestore.getInstance();
-
         adapter = new CustomAdapter(arrayList,getActivity());
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);

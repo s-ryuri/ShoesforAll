@@ -37,8 +37,8 @@ public class home_fragment extends Fragment {
     private RecyclerView.LayoutManager layoutManager;
     private ArrayList<Shoes> arrayList;
     private ProgressDialog progressDialog;
-
-
+    private String []shoesName = {"control_shoes","cushion_shoes","stabilization_shoes"};
+    private String TAG = "heee";
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -66,29 +66,33 @@ public class home_fragment extends Fragment {
         return view;
     }
     private void EventChangeListener() {
-        db.collection("cushion_shoes").orderBy("price", Query.Direction.ASCENDING)
-                .addSnapshotListener(new EventListener<QuerySnapshot>() {
-                    @Override
-                    public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
-                        if(error != null){
-                            if(progressDialog.isShowing()){
-                                progressDialog.dismiss();
+        for(int i = 0; i<3;i++){
+            final int index = i;
+            db.collection(shoesName[index]).orderBy("price", Query.Direction.ASCENDING)
+                    .addSnapshotListener(new EventListener<QuerySnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+                            if(error != null){
+                                if(progressDialog.isShowing()){
+                                    progressDialog.dismiss();
+                                }
+                                Log.e("Firestore error",error.getMessage());
+                                return;
                             }
-                            Log.e("Firestore error",error.getMessage());
-                            return;
+                            for(DocumentChange dc : value.getDocumentChanges()){
+                                if(dc.getType() == DocumentChange.Type.ADDED){
+                                    arrayList.add(dc.getDocument().toObject(Shoes.class));
+                                }
+                                adapter.notifyDataSetChanged();
+                                if(progressDialog.isShowing()){
+                                    progressDialog.dismiss();
+                                }
+                            }
                         }
-                        for(DocumentChange dc : value.getDocumentChanges()){
-                            if(dc.getType() == DocumentChange.Type.ADDED){
-                                arrayList.add(dc.getDocument().toObject(Shoes.class));
+                    });
+        }
 
-                            }
-                            adapter.notifyDataSetChanged();
-                            if(progressDialog.isShowing()){
-                                progressDialog.dismiss();
-                            }
-                        }
-                    }
-                });
+
 
     }
 }

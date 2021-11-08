@@ -109,55 +109,93 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     >
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunitosans_black"
-                        android:textSize="18sp"
-                        android:gravity="center"
-                        android:textColor="#000000"
-                        android:letterSpacing="0.02"
-                        android:lineSpacingExtra="1.7sp"
-                        android:text="DESCRIPTION"/>
-                    <TextView
-                        android:id="@+id/description_txt"
-                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunitosans_black"
+                            android:textSize="18sp"
+                            android:gravity="center"
+                            android:textColor="#000000"
+                            android:letterSpacing="0.02"
+                            android:lineSpacingExtra="1.7sp"
+                            android:text="DESCRIPTION"/>
+                        <TextView
+                            android:id="@+id/description_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/nunitosans_black"
+                            android:textSize="16sp"
+                            android:textColor="#000000"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="3.4sp"
+                            android:text="설명란"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/nunitosans_black"
-                        android:textSize="16sp"
-                        android:textColor="#000000"
-                        android:letterSpacing="0.01"
-                        android:lineSpacingExtra="3.4sp"
-                        android:text="설명란"/>
-                    <TextView
-                        android:id="@+id/information_txt"
-                        android:layout_marginTop="8dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/nunitosans_black"
-                        android:textSize="16sp"
-                        android:textColor="#000000"
-                        android:letterSpacing="0.01"
-                        android:lineSpacingExtra="3.4sp"
-                        android:text="information"/>
+                        android:orientation="vertical"
+                        >
+
+                        <TextView
+                            android:layout_marginTop="8dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/nunitosans_black"
+                            android:textSize="18sp"
+                            android:textColor="#000000"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="3.4sp"
+                            android:text="INFORMATION"/>
+
+                        <TextView
+                            android:id="@+id/information_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/nunitosans_black"
+                            android:textSize="16sp"
+                            android:textColor="#000000"
+                            android:letterSpacing="0.01"
+                            android:lineSpacingExtra="3.4sp"
+                            android:text="info란"/>
+
+                    </LinearLayout>
+
 
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="match_parent"
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#458EFF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            app:menu="@menu/detail_bottom_menu"
-            app:itemTextColor="#FFFFFF">
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
-    </FrameLayout>
+            android:text="장바구니 담기"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:background="#000000"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:id="@+id/buying_btn"
+            android:layout_height="wrap_content"
+            android:text="구매하기"/>
+    </LinearLayout>
 
 
 </LinearLayout>

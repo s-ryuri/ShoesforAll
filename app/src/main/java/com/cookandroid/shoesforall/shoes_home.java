@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.Touch;
 import android.view.MenuItem;
@@ -62,14 +63,8 @@ public class shoes_home extends AppCompatActivity {
                     case R.id.menu_search_btn:
                         setFrag(0);
                         break;
-                    case R.id.brand_btn:
-                        setFrag(1);
-                        break;
                     case R.id.home_btn:
                         setFrag(2);
-                        break;
-                    case R.id.like_btn:
-                        setFrag(3);
                         break;
                     case R.id.my_page_btn:
                         setFrag(4);
@@ -98,16 +93,8 @@ public class shoes_home extends AppCompatActivity {
                 ft.replace(R.id.main_frame,menu_search);
                 ft.commit();
                 break;
-            case 1:
-                ft.replace(R.id.main_frame,brand);
-                ft.commit();
-                break;
             case 2:
                 ft.replace(R.id.main_frame,home);
-                ft.commit();
-                break;
-            case 3:
-                ft.replace(R.id.main_frame,like);
                 ft.commit();
                 break;
             case 4:

@@ -40,13 +40,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        auth.getInstance();
-
         Button googleLoginButton = findViewById(R.id.googleLoginButton);
         googleLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                googleLogin();
+                Intent signInIntent = googleSignInClient.getSignInIntent();
+                startActivityForResult(signInIntent, GOOGLE_LOGIN_CODE);
                 //로그인 해서 shoes_home으로 감
             }
 
@@ -111,9 +110,6 @@ public class LoginActivity extends AppCompatActivity {
     */
 
 
-    public void googleLogin() {
-        startActivityForResult(signInIntent, GOOGLE_LOGIN_CODE);
-    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

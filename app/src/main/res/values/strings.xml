@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">모두의런닝</string>
     <string name="spinner">신발사이즈</string>
+    <string name="default_web_client_id">565770065097-ras64cra3is3ich0a63eufk6bnbpr6t5.apps.googleusercontent.com</string>
 </resources>

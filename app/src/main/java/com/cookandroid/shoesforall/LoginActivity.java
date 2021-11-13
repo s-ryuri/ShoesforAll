@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseUser user;
     private GoogleSignInClient googleSignInClient;
+    private GoogleSignInClient signInIntent;
 
     Button emailEditText = findViewById(R.id.emailEditText);
     Button passwordEditText = findViewById(R.id.passwordEditText);
@@ -76,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
         googleSignInClient = GoogleSignIn.getClient(this, gso);
     }
+
     /*public void onResume() {
         super.onResume()
         // Check if user is signed in (non-null) and update UI accordingly.
@@ -110,7 +112,6 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void googleLogin() {
-        GoogleSignInClient signInIntent;
         startActivityForResult(signInIntent, GOOGLE_LOGIN_CODE);
     }
     @Override
@@ -142,13 +143,14 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         else {
                             // 로그인 실패
-                            Toast.makeText(this, "로그인 실패", Toast.LENGTH_LONG).show();
+                            //Toast.makeText(this, "로그인 실패", Toast.LENGTH_LONG).show();
                         }
 
                     }
                 });
     }
     public void signinEmail() {
+        
     }
 
 

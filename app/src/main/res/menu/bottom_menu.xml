@@ -6,21 +6,11 @@
         android:icon="@drawable/ic_baseline_menu_24"
         android:title="메뉴 및 검색"/>
     <item
-        android:id="@+id/brand_btn"
-        android:enabled="true"
-        android:icon="@drawable/brand"
-        android:title="브랜드"/>
-    <item
         android:id="@+id/home_btn"
         android:enabled="true"
         android:icon="@drawable/ic_home_icon"
         android:title="홈"
         />
-    <item
-        android:id="@+id/like_btn"
-        android:enabled="true"
-        android:icon="@drawable/love"
-        android:title="좋아요"/>
     <item
         android:id="@+id/my_page_btn"
         android:enabled="true"

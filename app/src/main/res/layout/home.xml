@@ -6,7 +6,50 @@
     android:orientation="vertical"
     android:background="#FFFFFFFF"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/reative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
 
+        <ImageButton
+            android:id="@+id/menu_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00FFFFFF"
+            android:src="@drawable/ic_bell_icon" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/menu_btn"
+            android:layout_centerInParent="true"
+
+            android:fontFamily="@font/nanumsquareroundb"
+            android:letterSpacing="0.1"
+            android:text="모두의 런닝"
+            android:textColor="#161616"
+            android:textSize="22sp" />
+
+        <ImageButton
+            android:id="@+id/search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/shopping_btn"
+            android:backgroundTint="#00FFFFFF"
+            android:src="@drawable/ic_search_icon" />
+
+        <ImageButton
+            android:id="@+id/shopping_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="#00FFFFFF"
+            android:src="@drawable/ic_shoppingbag_icon" />
+
+    </RelativeLayout>
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="0dp"
@@ -52,6 +95,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_marginTop="21dp"
+                    android:orientation="horizontal"
                     android:layout_marginBottom="21dp"
                     android:layout_height="wrap_content">
 
@@ -84,6 +128,7 @@
                         android:background="?attr/selectableItemBackgroundBorderless"
                         android:onClick="onClick"
                         android:src="@drawable/ic_bell_icon" />
+
                 </LinearLayout>
                 <RelativeLayout
                     android:orientation="horizontal"
@@ -116,6 +161,7 @@
                     android:id="@+id/recyclerView">
                 </androidx.recyclerview.widget.RecyclerView>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="250dp"

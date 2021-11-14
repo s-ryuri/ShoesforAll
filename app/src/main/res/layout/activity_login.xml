@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:background="@null"
             android:inputType="textWebEmailAddress"
-            android:hint="아이디" />
+            android:hint="이메일 아이디" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../ShoesForAll/app/src/main/res/drawable-v24/ic_baseline_arrow_back_ios_24.xml" value="0.1328125" />
+        <entry key="../ShoesForAll/app/src/main/res/drawable-v24/radius_24dp_corner.xml" value="0.1328125" />
+        <entry key="../ShoesForAll/app/src/main/res/drawable-v24/rectangle_login.xml" value="0.1328125" />
         <entry key="../ShoesForAll/app/src/main/res/layout/activity_login.xml" value="0.16354166666666667" />
-        <entry key="../ShoesForAll/app/src/main/res/layout/activity_sign_up.xml" value="0.11666666666666667" />
+        <entry key="../ShoesForAll/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="../ShoesForAll/app/src/main/res/layout/home.xml" value="0.23385416666666667" />
         <entry key="..\:/CookAndroid/SDK/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/activity_detail_page.xml" value="0.23034188034188033" />

@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShoesforAll" >
         <activity
+            android:name=".SignUpActivity"
+            android:exported="true" />
+        <activity
             android:name=".searchActivity"
             android:exported="false" />
         <activity

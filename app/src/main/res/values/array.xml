@@ -2,6 +2,7 @@
 <!-- 신발사이즈 -->
 <resources>
     <string-array name="test">
+        <item> 사이즈 선택</item>
         <item> 220 </item>
         <item> 230 </item>
         <item> 240 </item>

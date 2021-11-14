@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:padding="5dp"
-        android:layout_height="200dp">
+        android:layout_height="wrap_content">
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -20,7 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:spinnerMode="dialog"
-            android:prompt="@string/spinner"
             />
 
         <LinearLayout
@@ -35,28 +34,8 @@
                 android:textSize="18sp"
                 android:layout_gravity="center_vertical"
                 android:textColor="#000000"
-                android:text="신발 사이즈"
+                android:text="상품 0개"
                 android:id="@+id/shoesize_txt"/>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:text="1"/>
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/plus_btn"
-                    android:src="@drawable/ic_baseline_plus_one_24"/>
-            </LinearLayout>
 
             <TextView
                 android:layout_width="0dp"
@@ -64,10 +43,15 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="18sp"
-                android:layout_gravity="center_vertical"
+                android:gravity="right"
                 android:textColor="#000000"
+                android:id="@+id/total_shoes_cost"
                 android:text="156,000원"/>
         </LinearLayout>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listview1"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

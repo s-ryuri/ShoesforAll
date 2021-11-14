@@ -29,12 +29,5 @@ public class order_bot_sheet extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_bot_sheet);
 
-        shoesize_txt = (TextView)findViewById(R.id.shoesize_txt);
-        plus_btn = (ImageButton)findViewById(R.id.plus_btn);
-
-
-
-
-
     }
 }

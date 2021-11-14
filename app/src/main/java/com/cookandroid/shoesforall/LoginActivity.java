@@ -7,15 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.auth.api.Auth;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
@@ -23,127 +19,69 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LoginActivity extends AppCompatActivity {
 
-    int GOOGLE_LOGIN_CODE = 9001;
+    private static final String TAG = "LoginActivity";
+    private static final int GOOGLE_LOGIN_CODE = 9001;
     private FirebaseAuth auth;
-    private FirebaseFirestore db;
-    private FirebaseUser user;
     private GoogleSignInClient googleSignInClient;
-    private GoogleSignInClient signInIntent;
 
-    Button emailEditText = findViewById(R.id.emailEditText);
-    Button passwordEditText = findViewById(R.id.passwordEditText);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Button googleLoginButton = findViewById(R.id.googleLoginButton);
-        googleLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent signInIntent = googleSignInClient.getSignInIntent();
-                startActivityForResult(signInIntent, GOOGLE_LOGIN_CODE);
-                //로그인 해서 shoes_home으로 감
-            }
+        auth = FirebaseAuth.getInstance();
 
-        });
-        Button emailLoginButton = findViewById(R.id.emailLoginButton);
-        emailLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //로그인 해서 shoes_home으로 감
-                signinEmail();
-                Intent intent = new Intent(LoginActivity.this,shoes_home.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivity(intent);
-            }
-
-        });
-        Button emailSignupButton = findViewById(R.id.emailSignupButton);
-        emailLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               //startActivity(Intent(this, AgreeActivity::class.java))
-            }
-
-        });
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken("565770065097-ras64cra3is3ich0a63eufk6bnbpr6t5.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
-        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
+
     }
-
-    /*public void onResume() {
-        super.onResume()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth?.currentUser
-        if (currentUser != null) {
-            db.collection("users").document(currentUser.uid).get().addOnSuccessListener {
-                val userData = it.toObject<UserDTO>()
-                val provider = try {
-                    currentUser.providerData[1].providerId
-                } catch (e: Exception) {
-                    currentUser.providerData[0].providerId
-                }
-                Log.e("${currentUser.uid}", userData?.activation.toString())
-
-                if (provider == "password") {
-                    if (userData?.activation == true) {
-                        moveMainpage(currentUser)
-                    } else { Toast.makeText(this, "회원가입을 위해 이메일 인증을 부탁드립니다.", Toast.LENGTH_LONG).show()
-
-                    }
-                } else {
-
-                    //  moveMainpage(currentUser)
-                }
-                //db.collection("users").document(currentUser.uid).update()
-                //  moveMainpage(currentUser)
-                //Log.e(auth?.currentUser?.providerId, current)
-            }
-        }
-    }
-    */
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        // 구글로그인 버튼 응답
+        // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == GOOGLE_LOGIN_CODE) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                // 구글 로그인 성공
+                // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuthWithGoogle(account);
-            } catch (ApiException e) {
+                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
+                firebaseAuthWithGoogle(account.getIdToken());
 
+            } catch (ApiException e) {
+                // Google Sign In failed, update UI appropriately
+                Log.w(TAG, "Google sign in failed", e);
             }
         }
     }
-    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
+    private void firebaseAuthWithGoogle(String idToken){
 
-        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         auth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // 로그인 성공
-                             moveMainpage(user);
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithCredential:success");
+                            FirebaseUser user = auth.getCurrentUser();
+                            moveMainpage(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithCredential:failure", task.getException());
                         }
-                        else {
-                            // 로그인 실패
-                            //Toast.makeText(this, "로그인 실패", Toast.LENGTH_LONG).show();
-                        }
-
                     }
                 });
+    }
+    private void googleSignIn() {
+        Intent signInIntent = googleSignInClient.getSignInIntent();
+        startActivityForResult(signInIntent, GOOGLE_LOGIN_CODE);
     }
     public void signinEmail() {
 
@@ -151,7 +89,28 @@ public class LoginActivity extends AppCompatActivity {
 
 
     public void  moveMainpage(FirebaseUser user) {
-            finish();
+        Intent intent = new Intent(LoginActivity.this,shoes_home.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(intent);
     }
 
+    public void onClick(View view) {
+
+        switch (view.getId()){
+            case R.id.googleLoginButton :
+                googleSignIn();
+                break;
+            case R.id.emailLoginButton :
+                //로그인 해서 shoes_home으로 감
+                signinEmail();
+                Intent intent = new Intent(LoginActivity.this,shoes_home.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+                break;
+
+            case R.id.emailSignupButton :
+                //startActivity(Intent(this, AgreeActivity::class.java))
+                break;
+        }
+    }
 }

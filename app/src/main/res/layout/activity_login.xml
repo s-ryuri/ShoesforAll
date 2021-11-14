@@ -126,6 +126,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
+        android:onClick="onClick"
         android:foreground="?attr/selectableItemBackground"
         app:cardCornerRadius="24dp">
 
@@ -146,6 +147,7 @@
         android:foreground="?attr/selectableItemBackground"
         android:layout_height="48dp"
         android:layout_marginTop="16dp"
+        android:onClick="onClick"
         app:cardCornerRadius="24dp">
 
         <ImageView

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/reativeLayout"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/shoesSize_txt"
+        android:textSize="24sp"
+        android:textColor="#000000"
+        android:text="사이즈"/>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_minus_btn"
+        android:layout_toLeftOf ="@id/shoesSize_cnt"
+        android:id="@+id/minus_btn"/>
+
+    <TextView
+        android:id="@+id/shoesSize_cnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="1개"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_plus_btn"
+        android:layout_toRightOf="@id/shoesSize_cnt"
+        android:id="@+id/plus_btn"/>
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_x_btn"
+        android:layout_alignParentRight="true"
+        android:id="@+id/x_btn"/>
+</RelativeLayout>

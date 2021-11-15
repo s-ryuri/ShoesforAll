@@ -5,6 +5,9 @@ import static android.widget.ArrayAdapter.createFromResource;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -37,18 +40,22 @@ public class detail_page extends AppCompatActivity {
     private ImageButton back_btn,home_detail_btn;
     private String imgUrl;
     private Spinner spinner;
-    private ArrayAdapter<CharSequence> sizeAdapter;
-    private Button buying_btn,btnOk,plus_btn;
-    private ListView listView1;
+
+    private Button buying_btn,btnOk;
+
+    private ArrayList<Shoes_cnt> shoes_list;
+    private ShoesCntAdapter shoesCntAdapter;
+    private RecyclerView shoes_cnt_recyclerview;
+    private LinearLayoutManager linearLayoutManager;
+
     HashMap<String,Integer> size_map = new HashMap<String,Integer>();
-    final ArrayList<String> items = new ArrayList<String>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_page);
 
         Intent intent = getIntent();
-
 
         back_btn = (ImageButton)findViewById(R.id.back_btn);
         detail_image = (ImageView) findViewById(R.id.detail_image);
@@ -65,15 +72,21 @@ public class detail_page extends AppCompatActivity {
         final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
         bottomSheetDialog.setContentView(view);
 
-        listView1 = view.findViewById(R.id.listview1);
+        shoes_cnt_recyclerview = view.findViewById(R.id.shoes_cnt_recyclerview);
+        //shoes_cnt_recyclerview.setHasFixedSize(true);
 
-        ArrayAdapter<String> listadapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,items);
-        listView1.setAdapter(listadapter);
+        shoes_list = new ArrayList<Shoes_cnt>();
+        shoesCntAdapter = new ShoesCntAdapter(shoes_list,this);
+
+        shoes_cnt_recyclerview.setAdapter(shoesCntAdapter);
 
 
 
 
 
+
+
+        //신발 이름이랑, 신발 가격 초기화
         shoesize_txt = view.findViewById(R.id.shoesize_txt);
         total_shoes_cost = view.findViewById(R.id.total_shoes_cost);
 
@@ -104,6 +117,7 @@ public class detail_page extends AppCompatActivity {
                 bottomSheetDialog.dismiss();
             }
         });
+
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,6 +126,7 @@ public class detail_page extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
         home_detail_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,11 +168,12 @@ public class detail_page extends AppCompatActivity {
                         //가지고 있지 않으면 리스트뷰에 추가
                         spinner.setSelection(0);// 다시 사이즈 선택으로
                         size_map.put(s_size,1);
-                        //Toast.makeText(getApplication(),Integer.toString(size_map.size()),Toast.LENGTH_SHORT).show();
-                        items.add(s_size.toString());
-                        listadapter.notifyDataSetChanged();
-                        shoesize_txt.setText("상품 " + Integer.toString(items.size())+"개");
-                        total_shoes_cost.setText(Integer.toString(items.size() * 156000) + "원");
+                        Shoes_cnt shoes_size_cnt = new Shoes_cnt(s_size,"1");
+                        shoes_list.add(shoes_size_cnt);
+                        shoesCntAdapter.notifyDataSetChanged();
+                        shoesize_txt.setText("상품 " + Integer.toString(shoes_list.size())+"개");
+                        total_shoes_cost.setText(Integer.toString(shoes_list.size() * Integer.parseInt(price_txt.getText().toString())) + "원");
+
                     }
                 }
 

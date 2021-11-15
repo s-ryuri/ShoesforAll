@@ -41,13 +41,12 @@ public class detail_page extends AppCompatActivity {
     private String imgUrl;
     private Spinner spinner;
 
+    private ImageButton x_btn;
     private Button buying_btn,btnOk;
 
     private ArrayList<Shoes_cnt> shoes_list;
     private ShoesCntAdapter shoesCntAdapter;
     private RecyclerView shoes_cnt_recyclerview;
-    private LinearLayoutManager linearLayoutManager;
-
     HashMap<String,Integer> size_map = new HashMap<String,Integer>();
 
     @Override
@@ -73,17 +72,34 @@ public class detail_page extends AppCompatActivity {
         bottomSheetDialog.setContentView(view);
 
         shoes_cnt_recyclerview = view.findViewById(R.id.shoes_cnt_recyclerview);
-        //shoes_cnt_recyclerview.setHasFixedSize(true);
+        shoes_cnt_recyclerview.setHasFixedSize(true);
 
         shoes_list = new ArrayList<Shoes_cnt>();
-        shoesCntAdapter = new ShoesCntAdapter(shoes_list,this);
+//        shoesCntAdapter = new ShoesCntAdapter(shoes_list,this);
 
+        shoesCntAdapter = new ShoesCntAdapter(shoes_list,getApplicationContext(),new ClickListener(){
+            @Override
+            public void onDeleteClicked(int position,String ssize) {
+
+                shoes_list.remove(position);
+                shoesCntAdapter.notifyDataSetChanged();
+                size_map.remove(ssize);
+                shoesize_txt.setText("상품 " + Integer.toString(shoes_list.size())+"개");
+                total_shoes_cost.setText(Integer.toString(shoes_list.size() * Integer.parseInt(price_txt.getText().toString())) + "원");
+
+            }
+
+            @Override
+            public void onPlusClicked(int position,String ssize) {
+
+            }
+
+            @Override
+            public void onMinusClicked(int position,String ssize) {
+
+            }
+        });
         shoes_cnt_recyclerview.setAdapter(shoesCntAdapter);
-
-
-
-
-
 
 
         //신발 이름이랑, 신발 가격 초기화
@@ -113,7 +129,7 @@ public class detail_page extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
-                size_map.clear();
+                //size_map.clear();
                 bottomSheetDialog.dismiss();
             }
         });
@@ -136,13 +152,13 @@ public class detail_page extends AppCompatActivity {
             }
         });
 
+
         spinner = view.findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.test,android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
 
-        //spinner.setSelection(1); //스피너 처음 선택했을 때 뜨는 화면
         spinner.setSelection(0,false);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -182,7 +198,7 @@ public class detail_page extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                Toast.makeText(getApplicationContext(),"넌 뭐냐?",Toast.LENGTH_SHORT).show();
             }
         });
 

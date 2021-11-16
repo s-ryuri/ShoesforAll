@@ -3,6 +3,7 @@ package com.cookandroid.shoesforall;
 
 import static android.widget.ArrayAdapter.createFromResource;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -44,7 +46,9 @@ public class detail_page extends AppCompatActivity {
     private ImageButton x_btn;
     private Button buying_btn,btnOk;
 
-    private ArrayList<Shoes_cnt> shoes_list;
+    private ArrayList<Shoes_cnt> shoes_list; //리사이클러뷰에 들어가는 리스트
+
+
     private ShoesCntAdapter shoesCntAdapter;
     private RecyclerView shoes_cnt_recyclerview;
     HashMap<String,Integer> size_map = new HashMap<String,Integer>();
@@ -75,30 +79,72 @@ public class detail_page extends AppCompatActivity {
         shoes_cnt_recyclerview.setHasFixedSize(true);
 
         shoes_list = new ArrayList<Shoes_cnt>();
-//        shoesCntAdapter = new ShoesCntAdapter(shoes_list,this);
+
 
         shoesCntAdapter = new ShoesCntAdapter(shoes_list,getApplicationContext(),new ClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
-            public void onDeleteClicked(int position,String ssize) {
+            public void onDeleteClicked(Shoes_cnt shoes) {
+                int position = 0;
+                for(int i = 0;i<shoes_list.size();i++){
 
-                shoes_list.remove(position);
+                    // x 버튼을 눌렀을 때 그 값이 일치하면 삭제
+                    if(shoes_list.get(i).getShoesSize_txt() == shoes.getShoesSize_txt()){
+                        shoes_list.remove(i);
+                        position = i;
+                        break;
+                    }
+                }
+
+                //size_map.replace(shoes.getShoesSize_txt(),shoes.getShoesSize_cnt());
+                size_map.remove(shoes.getShoesSize_txt()); //이미 선택된거 확인할 때
+
+                shoesize_txt.setText("상품 " + Integer.toString(shoestotal())+"개");
+                total_shoes_cost.setText(Integer.toString(shoestotal() * Integer.parseInt(price_txt.getText().toString())) + "원");
+
+                shoesCntAdapter.notifyItemRemoved(position);
                 shoesCntAdapter.notifyDataSetChanged();
-                size_map.remove(ssize);
-                shoesize_txt.setText("상품 " + Integer.toString(shoes_list.size())+"개");
-                total_shoes_cost.setText(Integer.toString(shoes_list.size() * Integer.parseInt(price_txt.getText().toString())) + "원");
+//                shoes_cnt_recyclerview.removeAllViewsInLayout();
+//                shoes_cnt_recyclerview.setAdapter(shoesCntAdapter);
 
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
-            public void onPlusClicked(int position,String ssize) {
+            public void onPlusClicked(Shoes_cnt shoes) {
+                size_map.replace(shoes.getShoesSize_txt(),shoes.getShoesSize_cnt());
+                shoesCntAdapter.notifyDataSetChanged();
+                shoesize_txt.setText("상품 " + Integer.toString(shoestotal())+"개");
+                total_shoes_cost.setText(Integer.toString(shoestotal() * Integer.parseInt(price_txt.getText().toString())) + "원");
 
             }
 
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
-            public void onMinusClicked(int position,String ssize) {
+            public void onMinusClicked(Shoes_cnt shoes) {
+                size_map.replace(shoes.getShoesSize_txt(),shoes.getShoesSize_cnt());
+                shoesCntAdapter.notifyDataSetChanged();
+                shoesize_txt.setText("상품 " + Integer.toString(shoestotal())+"개");
+                total_shoes_cost.setText(Integer.toString(shoestotal() * Integer.parseInt(price_txt.getText().toString())) + "원");
 
             }
         });
+
+        btnOk = view.findViewById(R.id.btnOk);
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
+                shoes_list.clear();
+                size_map.clear();
+                shoesCntAdapter.notifyDataSetChanged();
+                shoesize_txt.setText("상품 " + Integer.toString(shoestotal())+"개");
+                total_shoes_cost.setText(Integer.toString( shoestotal() * Integer.parseInt(price_txt.getText().toString())) + "원");
+                bottomSheetDialog.dismiss();
+            }
+        });
+
+
         shoes_cnt_recyclerview.setAdapter(shoesCntAdapter);
 
 
@@ -123,16 +169,6 @@ public class detail_page extends AppCompatActivity {
         description_txt.setText(intent.getStringExtra("DESCRIPTION"));
         information_txt.setText(intent.getStringExtra("INFORMATION"));
 
-
-        btnOk = view.findViewById(R.id.btnOk);
-        btnOk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
-                //size_map.clear();
-                bottomSheetDialog.dismiss();
-            }
-        });
 
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,11 +220,11 @@ public class detail_page extends AppCompatActivity {
                         //가지고 있지 않으면 리스트뷰에 추가
                         spinner.setSelection(0);// 다시 사이즈 선택으로
                         size_map.put(s_size,1);
-                        Shoes_cnt shoes_size_cnt = new Shoes_cnt(s_size,"1");
+                        Shoes_cnt shoes_size_cnt = new Shoes_cnt(s_size,1);
                         shoes_list.add(shoes_size_cnt);
                         shoesCntAdapter.notifyDataSetChanged();
-                        shoesize_txt.setText("상품 " + Integer.toString(shoes_list.size())+"개");
-                        total_shoes_cost.setText(Integer.toString(shoes_list.size() * Integer.parseInt(price_txt.getText().toString())) + "원");
+                        shoesize_txt.setText("상품 " + Integer.toString(shoestotal())+"개");
+                        total_shoes_cost.setText(Integer.toString( shoestotal() * Integer.parseInt(price_txt.getText().toString())) + "원");
 
                     }
                 }
@@ -198,9 +234,15 @@ public class detail_page extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getApplicationContext(),"넌 뭐냐?",Toast.LENGTH_SHORT).show();
+
             }
         });
-
+    }
+    public int shoestotal(){
+        int sum = 0;
+        for(Map.Entry<String,Integer> entry : size_map.entrySet()){
+            sum += entry.getValue();
+        }
+        return sum;
     }
 }

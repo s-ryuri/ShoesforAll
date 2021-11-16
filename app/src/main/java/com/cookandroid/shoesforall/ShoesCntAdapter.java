@@ -15,17 +15,16 @@ import java.util.ArrayList;
 
 interface ClickListener {
 
-    void onPlusClicked(int position,String ssize);
+    void onPlusClicked(Shoes_cnt shoes);
 
-    void onMinusClicked(int position,String ssize);
+    void onMinusClicked(Shoes_cnt shoes);
 
-    void onDeleteClicked(int position,String ssize);
+    void onDeleteClicked(Shoes_cnt shoes);
 }
 public class ShoesCntAdapter extends RecyclerView.Adapter<ShoesCntAdapter.CustomViewHolder> {
 
 
     private final ClickListener listener;
-
 
 
     private ArrayList<Shoes_cnt> arrayList;
@@ -44,36 +43,49 @@ public class ShoesCntAdapter extends RecyclerView.Adapter<ShoesCntAdapter.Custom
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.shoes_cnt_recyclerview,parent,false);
         CustomViewHolder holder = new CustomViewHolder(view, listener);
         return holder;
-
     }
 
     @Override
     public void onBindViewHolder(@NonNull ShoesCntAdapter.CustomViewHolder holder, int position) {
 
         holder.shoesSize_txt.setText(arrayList.get(position).getShoesSize_txt());
-        holder.shoesSize_cnt.setText(arrayList.get(position).getShoesSize_cnt());
+        holder.shoesSize_cnt.setText(arrayList.get(position).getShoesSize_cnt().toString()); //이게 진짜 제일 중요하네
         holder.itemView.setTag(position);
-
 
         holder.x_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                remove(holder.getAdapterPosition());
-                holder.listener.onDeleteClicked(holder.getAdapterPosition(),holder.shoesSize_txt.getText().toString());
+                holder.shoesSize_cnt.setText("1");
+                arrayList.remove(holder.getAdapterPosition());
+                //arrayList.get(holder.getAdapterPosition()).setShoesSize_cnt(1);
+                //arrayList.get(holder.getAdapterPosition()).getShoesSize_cnt().toString()
+                holder.listener.onDeleteClicked(new Shoes_cnt(holder.shoesSize_txt.getText().toString(),Integer.parseInt(holder.shoesSize_cnt.getText().toString())));
             }
         });
 
         holder.plus_btn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                holder.listener.onDeleteClicked(holder.getAdapterPosition(),holder.shoesSize_txt.getText().toString());
+                arrayList.get(holder.getAdapterPosition()).setShoesSize_cnt(arrayList.get(holder.getAdapterPosition()).getShoesSize_cnt() + 1);
+
+                holder.shoesSize_cnt.setText(arrayList.get(holder.getAdapterPosition()).getShoesSize_cnt().toString()); // 1값을 증가시킴
+
+                holder.listener.onPlusClicked(new Shoes_cnt(holder.shoesSize_txt.getText().toString(),Integer.parseInt(holder.shoesSize_cnt.getText().toString())));
             }
         });
 
         holder.minus_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                holder.listener.onDeleteClicked(holder.getAdapterPosition(),holder.shoesSize_txt.getText().toString());
+                if(arrayList.get(holder.getAdapterPosition()).getShoesSize_cnt() > 1){
+                    arrayList.get(holder.getAdapterPosition()).setShoesSize_cnt(arrayList.get(holder.getAdapterPosition()).getShoesSize_cnt() - 1);
+                }
+                else{
+                    Toast.makeText(context.getApplicationContext(), "더 이상 줄일 수 없습니다.",Toast.LENGTH_SHORT).show();
+                }
+                holder.shoesSize_cnt.setText(arrayList.get(holder.getAdapterPosition()).getShoesSize_cnt().toString());
+                holder.listener.onMinusClicked(new Shoes_cnt(holder.shoesSize_txt.getText().toString(),Integer.parseInt(holder.shoesSize_cnt.getText().toString())));
             }
         });
 
@@ -85,17 +97,6 @@ public class ShoesCntAdapter extends RecyclerView.Adapter<ShoesCntAdapter.Custom
         return (null != arrayList ? arrayList.size() : 0);
     }
 
-    public void remove(int position){
-        try{
-            arrayList.remove(position);
-
-            notifyItemRemoved(position);
-            //리스트를 지우고 새로고침을 꼭 해줘야됨
-        }catch(IndexOutOfBoundsException ex){
-            ex.printStackTrace();
-        }
-    }
-
 
     public class CustomViewHolder extends RecyclerView.ViewHolder {
 
@@ -103,13 +104,6 @@ public class ShoesCntAdapter extends RecyclerView.Adapter<ShoesCntAdapter.Custom
         protected ImageButton x_btn;
         protected ImageButton plus_btn,minus_btn;
         private final ClickListener listener;
-       // protected TextView shoesize_txt;
-
-//        protected ArrayList<Shoes_cnt> shoes_list;
-//        protected ShoesCntAdapter shoesCntAdapter;
-//        protected RecyclerView shoes_cnt_recyclerview;
-//        protected Spinner spinner;
-//        HashMap<String,Integer> size_map = new HashMap<String,Integer>();
 
         public CustomViewHolder(@NonNull View itemView, ClickListener listener) {
             super(itemView);

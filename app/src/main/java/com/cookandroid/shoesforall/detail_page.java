@@ -131,16 +131,28 @@ public class detail_page extends AppCompatActivity {
         });
 
         btnOk = view.findViewById(R.id.btnOk);
+
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "확인", Toast.LENGTH_SHORT).show();
-                shoes_list.clear();
-                size_map.clear();
-                shoesCntAdapter.notifyDataSetChanged();
-                shoesize_txt.setText("상품 " + Integer.toString(shoestotal())+"개");
-                total_shoes_cost.setText(Integer.toString( shoestotal() * Integer.parseInt(price_txt.getText().toString())) + "원");
-                bottomSheetDialog.dismiss();
+
+                if(shoes_list.size() > 0){
+                    shoes_list.clear();
+                    size_map.clear();
+                    shoesCntAdapter.notifyDataSetChanged();
+                    shoesize_txt.setText("상품 " + Integer.toString(shoestotal())+"개");
+                    total_shoes_cost.setText(Integer.toString( shoestotal() * Integer.parseInt(price_txt.getText().toString())) + "원");
+                    bottomSheetDialog.dismiss();
+                    Intent intent = new Intent(getApplicationContext(),order_page.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                }else{
+                    Toast toast = new Toast(getApplicationContext());
+                    View toastView = (View)View.inflate(getApplicationContext(),R.layout.toast,null);
+                    toast.setView(toastView);
+                    toast.show();
+                }
+
             }
         });
 

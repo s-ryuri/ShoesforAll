@@ -31,6 +31,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -137,14 +138,27 @@ public class detail_page extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(shoes_list.size() > 0){
+                    String price_data = Integer.toString( shoestotal() * Integer.parseInt(price_txt.getText().toString())) + "원";
+                    String count_data = Integer.toString(shoestotal());
+                    String shoes_cnt = Integer.toString(shoes_list.size());
+
+                    Intent intent = new Intent(getApplicationContext(),order_page.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    intent.putExtra("shoes_name",shoesName_txt.getText().toString());
+                    intent.putExtra("total_cost",price_data);
+                    intent.putExtra("shoes_count",shoes_cnt);
+                    intent.putExtra("total_count",count_data);
+
+                    for(int i = 0;i<shoes_list.size();i++){
+                        intent.putExtra("shoes_size" + Integer.toString(i+1),shoes_list.get(i).getShoesSize_txt());
+                    }
                     shoes_list.clear();
                     size_map.clear();
                     shoesCntAdapter.notifyDataSetChanged();
-                    shoesize_txt.setText("상품 " + Integer.toString(shoestotal())+"개");
-                    total_shoes_cost.setText(Integer.toString( shoestotal() * Integer.parseInt(price_txt.getText().toString())) + "원");
+                    shoesize_txt.setText("상품 0개");
+                    total_shoes_cost.setText("0원");
                     bottomSheetDialog.dismiss();
-                    Intent intent = new Intent(getApplicationContext(),order_page.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+
                     startActivity(intent);
                 }else{
                     Toast toast = new Toast(getApplicationContext());

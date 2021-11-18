@@ -57,8 +57,6 @@ public class ShoesCntAdapter extends RecyclerView.Adapter<ShoesCntAdapter.Custom
             public void onClick(View v) {
                 holder.shoesSize_cnt.setText("1");
                 arrayList.remove(holder.getAdapterPosition());
-                //arrayList.get(holder.getAdapterPosition()).setShoesSize_cnt(1);
-                //arrayList.get(holder.getAdapterPosition()).getShoesSize_cnt().toString()
                 holder.listener.onDeleteClicked(new Shoes_cnt(holder.shoesSize_txt.getText().toString(),Integer.parseInt(holder.shoesSize_cnt.getText().toString())));
             }
         });

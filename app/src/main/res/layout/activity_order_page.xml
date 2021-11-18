@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".order_page">
 
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:menu="@menu/toolbar_menu"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,52 +17,405 @@
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:padding="10dp"
+            android:gravity="center"
             android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
-
+                android:orientation="vertical"
                 android:layout_height="wrap_content">
-
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:padding="8dp"
+                    android:background="#000000"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="16sp"
+                    android:textColor="#FFFFFF"
+                    android:text="배송지"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:text="주문자 정보"/>
+                    android:layout_marginBottom="8dp"
+                    android:text="회원명 : 위성률"/>
                 <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="#d3d3d3"
+                    android:gravity="center"
+                    android:layout_marginBottom="8dp"
+                    android:textSize="16sp"
+                    android:text="전화번호 : 01026355988"/>
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textColor="#000000"
                     android:gravity="center"
                     android:textSize="16sp"
-                    android:text="이름 | 전화번호"/>
+                    android:text="주소 : 서울 노원구 공릉동 58길 130 수림학사 222호"/>
+
+                <Spinner
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/delivery_spinner"
+                    android:background="@drawable/spinner_background"
+                    android:layout_marginBottom="8dp"
+                    android:spinnerMode="dialog"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/order_edt"
+                    android:background="@drawable/spinner_background"
+                    android:hint="최대 50자까지 입력 가능합니다."
+                    android:maxLength="50"
+                    android:visibility="gone"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_marginTop="8dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:id="@+id/order_linear"
 
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#000000"
+                    android:padding="8dp"
+                    android:text="상품 정보"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="8dp"
+                    android:textStyle="bold"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@drawable/ultra_boost"
+                        android:id="@+id/order_page_shoes_picture"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/order_page_shoes_name"
+                            android:textStyle="bold"
+                            android:textColor="#000000"
+                            android:text="신발 이름"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="#000000"
+                            android:text="옵션 235"
+                            android:id="@+id/order_page_shoes_size"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="#000000"
+                            android:text="수량 1개"
+                            android:id="@+id/order_page_shoes_cnt"/>
+                    </LinearLayout>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="가격"
+                            android:textStyle="bold"
+                            android:textColor="#000000"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="65000원"
+                            android:textStyle="bold"
+                            android:textColor="#000000"
+                            android:id="@+id/order_page_shoes_price"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="배송 분류"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="택배 배송"
+                        android:textStyle="bold"
+                        android:textColor="#000000"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="등급 할인"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="제한"
+                        android:textStyle="bold"
+                        android:textColor="#FF0000"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="8dp"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="적립금 선할인"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="가능"
+                        android:textStyle="bold"
+                        android:textColor="#000000"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="적립금 사용"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="가능"
+                        android:textStyle="bold"
+                        android:textColor="#000000"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="쿠폰 할인"
+                        android:textStyle="bold"
+                        android:textColor="#000000"
+                        />
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="사용"
+                        android:textStyle="bold"
+                        android:textColor="#000000"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
+                    android:padding="8dp"
                     android:textSize="16sp"
-                    android:textColor="#000000"
-                    android:text="배송지"
-                    />
+                    android:background="#000000"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginBottom="8dp"
+                    android:text="결제 정보"/>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="3"
+                    android:rowCount="4">
+
+                    <Button
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="3dp"
+                        android:textColor="@color/order_button_textcolor"
+                        android:background="@drawable/order_button_selector"
+                        android:layout_columnWeight="1"
+                        android:text="신용카드" />
+                    <Button
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/order_button_selector"
+                        android:layout_columnWeight="1"
+                        android:textColor="@color/order_button_textcolor"
+                        android:text="가상계좌" />
+                    <Button
+                        android:layout_row="0"
+                        android:layout_column="2"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/order_button_selector"
+                        android:layout_rowWeight="1"
+                        android:textColor="@color/order_button_textcolor"
+                        android:layout_columnWeight="1"
+                        android:text="계좌이체" />
+
+                    <Button
+                        android:layout_row="1"
+                        android:layout_column="0"
+                        android:layout_rowWeight="1"
+                        android:layout_margin="3dp"
+                        android:textColor="@color/order_button_textcolor"
+                        android:background="@drawable/order_button_selector"
+                        android:layout_columnWeight="1"
+                        android:text="휴대폰결제" />
+                    <Button
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="3dp"
+                        android:textColor="@color/order_button_textcolor"
+                        android:background="@drawable/order_button_selector"
+                        android:text="토스" />
+                    <Button
+                        android:layout_row="1"
+                        android:layout_column="2"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:textColor="@color/order_button_textcolor"
+                        android:layout_margin="3dp"
+                        android:background="@drawable/order_button_selector"
+                        android:text="카카오페이" />
+
+                    <Button
+                        android:layout_row="2"
+                        android:layout_column="0"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="3dp"
+                        android:textColor="@color/order_button_textcolor"
+                        android:background="@drawable/order_button_selector"
+                        android:text="삼성페이" />
+                    <Button
+                        android:layout_row="2"
+                        android:layout_column="1"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="3dp"
+                        android:textColor="@color/order_button_textcolor"
+                        android:background="@drawable/order_button_selector"
+                        android:text="네이버페이" />
+                    <Button
+                        android:layout_row="2"
+                        android:layout_column="2"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="3dp"
+                        android:textColor="@color/order_button_textcolor"
+                        android:background="@drawable/order_button_selector"
+                        android:text="차이페이" />
+                    <Button
+                        android:layout_row="3"
+                        android:layout_column="0"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="3dp"
+                        android:textColor="@color/order_button_textcolor"
+                        android:background="@drawable/order_button_selector"
+                        android:text="페이코" />
+                </GridLayout>
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="#458EFF"
+        android:letterSpacing="0.05"
+        android:text="10만원으로 구매하기"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
-</LinearLayout>
+</RelativeLayout>

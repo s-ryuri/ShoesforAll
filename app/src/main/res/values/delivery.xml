@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="delivery">
+        <item> 배송 시 요청사항을 선택해주세요 </item>
+        <item> 부재 시 경비실에 맡겨주세요 </item>
+        <item> 부재 시 택배함에 넣어주세요 </item>
+        <item> 부재 시 집 앞에 놔주세요 </item>
+        <item> 배송 전 연락 바랍니다 </item>
+        <item> 파손의 위험이 있는 상품입니다. 배송 시 주의해주세요 </item>
+        <item> 직접 입력 </item>
+    </string-array>
+</resources>

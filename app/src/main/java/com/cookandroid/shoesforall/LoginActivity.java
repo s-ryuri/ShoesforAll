@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                 break;
 
             case R.id.emailSignupButton :
-                intent = new Intent(LoginActivity.this,SignUpActivity.class);
+                intent = new Intent(LoginActivity.this,AgreeActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 break;

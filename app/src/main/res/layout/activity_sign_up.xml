@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".SignUpActivity"
     android:layout_marginHorizontal="16dp"
+    android:backgroundTint="@color/colorWhite"
     android:orientation="vertical">
 
   <Button
@@ -31,7 +32,7 @@
       android:layout_height="wrap_content"
       android:padding="12dp"
       android:layout_marginBottom="8dp"
-      android:background="@drawable/rectangle_login">
+      android:background="@drawable/rectangle_20">
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/emailEditText"
         android:layout_marginStart="8dp"

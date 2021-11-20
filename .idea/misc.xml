@@ -7,11 +7,16 @@
         <entry key="../ShoesForAll/app/src/main/res/drawable-v24/radius_24dp_corner.xml" value="0.1328125" />
         <entry key="../ShoesForAll/app/src/main/res/drawable-v24/rectangle_login.xml" value="0.1328125" />
         <entry key="../ShoesForAll/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.1796875" />
+        <entry key="../ShoesForAll/app/src/main/res/drawable/lightgray_textview.xml" value="0.22685185185185186" />
+        <entry key="../ShoesForAll/app/src/main/res/drawable/rectangle_20.xml" value="0.22685185185185186" />
         <entry key="../ShoesForAll/app/src/main/res/layout/activity_agree.xml" value="0.16354166666666667" />
         <entry key="../ShoesForAll/app/src/main/res/layout/activity_find_password.xml" value="0.15520833333333334" />
         <entry key="../ShoesForAll/app/src/main/res/layout/activity_login.xml" value="0.16354166666666667" />
+        <entry key="../ShoesForAll/app/src/main/res/layout/activity_main.xml" value="0.22239583333333332" />
+        <entry key="../ShoesForAll/app/src/main/res/layout/activity_order_bot_sheet.xml" value="0.22239583333333332" />
         <entry key="../ShoesForAll/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="../ShoesForAll/app/src/main/res/layout/activity_web_view.xml" value="0.21354166666666666" />
+        <entry key="../ShoesForAll/app/src/main/res/layout/gray_rectangle.xml" value="0.22239583333333332" />
         <entry key="../ShoesForAll/app/src/main/res/layout/home.xml" value="0.23385416666666667" />
         <entry key="../ShoesForAll/app/src/main/res/layout/mypage.xml" value="0.1" />
         <entry key="..\:/CookAndroid/SDK/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.18385416666666668" />

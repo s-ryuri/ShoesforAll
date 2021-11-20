@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private GoogleSignInClient googleSignInClient;
     private TextInputEditText emailEditText;
     private TextInputEditText passwordEditText;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,13 +117,13 @@ public class LoginActivity extends AppCompatActivity {
             else {
                 Toast.makeText(LoginActivity.this, "회원가입을 위해 이메일 인증을 부탁드립니다.", Toast.LENGTH_LONG).show();
             }
-
         }
+        else{}
     }
 
 
     public void  moveMainpage(FirebaseUser user) {
-        Intent intent = new Intent(LoginActivity.this,shoes_home.class);
+        intent = new Intent(LoginActivity.this,shoes_home.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
@@ -139,7 +140,13 @@ public class LoginActivity extends AppCompatActivity {
                 break;
 
             case R.id.emailSignupButton :
-                Intent intent = new Intent(LoginActivity.this,AgreeActivity.class);
+                intent = new Intent(LoginActivity.this,AgreeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+                break;
+
+            case R.id.findPw :
+                intent = new Intent(LoginActivity.this,FindPasswordActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
                 break;

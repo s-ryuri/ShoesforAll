@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShoesforAll">
         <activity
+            android:name=".FindPasswordActivity"
+            android:exported="true" />
+        <activity
             android:name=".WebViewActivity"
             android:exported="true" />
         <activity

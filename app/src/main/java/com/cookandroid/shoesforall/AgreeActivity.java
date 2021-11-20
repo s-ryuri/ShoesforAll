@@ -148,7 +148,7 @@ public class AgreeActivity extends AppCompatActivity {
         if (checkBox1.isChecked() && checkBox2.isChecked()
                 && checkBox3.isChecked() && checkBox4.isChecked()) {
             emailSignupButton.setEnabled(true);
-            color = "#6782b7";
+            color = "#000000";
         } else {
             emailSignupButton.setEnabled(false);
             color = "#aaaaaa";

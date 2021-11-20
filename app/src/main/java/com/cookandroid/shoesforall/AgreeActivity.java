@@ -158,10 +158,11 @@ public class AgreeActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
+        Intent intent;
 
         switch (view.getId()) {
             case R.id.arrow1:
-                Intent intent = new Intent(AgreeActivity.this, WebViewActivity.class);
+                intent = new Intent(AgreeActivity.this, WebViewActivity.class);
                 intent.putExtra("TYPE", "AGREE");
                 intent.putExtra("NUMBER", 1);
                 startActivity(intent);

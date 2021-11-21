@@ -10,10 +10,13 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import org.w3c.dom.Text;
 
@@ -29,6 +32,7 @@ public class order_page extends AppCompatActivity {
     private TextView order_page_shoes_price,order_page_shoes_cnt,order_page_shoes_size,order_page_shoes_name;
     private Button order_buy_btn;
     private TabHost tabHost;
+    private ImageView order_page_shoes_picture;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,7 @@ public class order_page extends AppCompatActivity {
         order_page_shoes_cnt = (TextView)findViewById(R.id.order_page_shoes_cnt);
         order_page_shoes_size = (TextView)findViewById(R.id.order_page_shoes_size);
         order_page_shoes_name = (TextView) findViewById(R.id.order_page_shoes_name);
+        order_page_shoes_picture = (ImageView) findViewById(R.id.order_page_shoes_picture);
         order_edt = (EditText)findViewById(R.id.order_edt);
 
         delivery_spinner = (Spinner) findViewById(R.id.delivery_spinner);
@@ -55,6 +60,8 @@ public class order_page extends AppCompatActivity {
         order_buy_btn.setText(data +" 결제하기");
         order_page_shoes_name.setText(delivery_intent.getStringExtra("shoes_name"));
 
+
+        Glide.with(this).load(delivery_intent.getStringExtra("shoes_image")).override(140,140).into(this.order_page_shoes_picture); //로드해서 이미지에 올린다
 
         String options = "옵션 : ";
         String total_shoes_cnt = delivery_intent.getStringExtra("shoes_count");

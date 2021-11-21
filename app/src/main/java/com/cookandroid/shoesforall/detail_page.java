@@ -97,7 +97,6 @@ public class detail_page extends AppCompatActivity {
                     }
                 }
 
-                //size_map.replace(shoes.getShoesSize_txt(),shoes.getShoesSize_cnt());
                 size_map.remove(shoes.getShoesSize_txt()); //이미 선택된거 확인할 때
 
                 shoesize_txt.setText("상품 " + Integer.toString(shoestotal())+"개");
@@ -105,8 +104,6 @@ public class detail_page extends AppCompatActivity {
 
                 shoesCntAdapter.notifyItemRemoved(position);
                 shoesCntAdapter.notifyDataSetChanged();
-//                shoes_cnt_recyclerview.removeAllViewsInLayout();
-//                shoes_cnt_recyclerview.setAdapter(shoesCntAdapter);
 
             }
 
@@ -117,7 +114,6 @@ public class detail_page extends AppCompatActivity {
                 shoesCntAdapter.notifyDataSetChanged();
                 shoesize_txt.setText("상품 " + Integer.toString(shoestotal())+"개");
                 total_shoes_cost.setText(Integer.toString(shoestotal() * Integer.parseInt(price_txt.getText().toString())) + "원");
-
             }
 
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -148,7 +144,7 @@ public class detail_page extends AppCompatActivity {
                     intent.putExtra("total_cost",price_data);
                     intent.putExtra("shoes_count",shoes_cnt);
                     intent.putExtra("total_count",count_data);
-
+                    intent.putExtra("shoes_image",imgUrl);
                     for(int i = 0;i<shoes_list.size();i++){
                         intent.putExtra("shoes_size" + Integer.toString(i+1),shoes_list.get(i).getShoesSize_txt());
                     }
@@ -172,7 +168,6 @@ public class detail_page extends AppCompatActivity {
 
 
         shoes_cnt_recyclerview.setAdapter(shoesCntAdapter);
-
 
         //신발 이름이랑, 신발 가격 초기화
         shoesize_txt = view.findViewById(R.id.shoesize_txt);

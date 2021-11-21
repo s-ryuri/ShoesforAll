@@ -36,7 +36,6 @@ public class ShoesCntAdapter extends RecyclerView.Adapter<ShoesCntAdapter.Custom
         this.context = context;
     }
 
-
     @NonNull
     @Override
     public ShoesCntAdapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -66,9 +65,7 @@ public class ShoesCntAdapter extends RecyclerView.Adapter<ShoesCntAdapter.Custom
             @Override
             public void onClick(View v) {
                 arrayList.get(holder.getAdapterPosition()).setShoesSize_cnt(arrayList.get(holder.getAdapterPosition()).getShoesSize_cnt() + 1);
-
                 holder.shoesSize_cnt.setText(arrayList.get(holder.getAdapterPosition()).getShoesSize_cnt().toString()); // 1값을 증가시킴
-
                 holder.listener.onPlusClicked(new Shoes_cnt(holder.shoesSize_txt.getText().toString(),Integer.parseInt(holder.shoesSize_cnt.getText().toString())));
             }
         });

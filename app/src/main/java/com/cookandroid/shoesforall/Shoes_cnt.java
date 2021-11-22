@@ -1,6 +1,6 @@
 package com.cookandroid.shoesforall;
 
-public class Shoes_cnt {
+public class  Shoes_cnt {
 
     private String shoesSize_txt;
     private Integer shoesSize_cnt = 1;

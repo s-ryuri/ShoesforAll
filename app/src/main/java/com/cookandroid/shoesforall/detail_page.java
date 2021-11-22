@@ -1,20 +1,11 @@
 package com.cookandroid.shoesforall;
 
 
-import static android.widget.ArrayAdapter.createFromResource;
-
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,16 +13,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,13 +34,8 @@ public class detail_page extends AppCompatActivity {
     private ImageButton back_btn,home_detail_btn;
     private String imgUrl;
     private Spinner spinner;
-
-    private ImageButton x_btn;
     private Button buying_btn,btnOk;
-
     private ArrayList<Shoes_cnt> shoes_list; //리사이클러뷰에 들어가는 리스트
-
-
     private ShoesCntAdapter shoesCntAdapter;
     private RecyclerView shoes_cnt_recyclerview;
     HashMap<String,Integer> size_map = new HashMap<String,Integer>();

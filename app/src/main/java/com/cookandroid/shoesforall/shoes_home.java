@@ -6,12 +6,16 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.Touch;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,7 +25,7 @@ public class shoes_home extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private FragmentTransaction ft;
     private FragmentManager fm;
-
+    private FrameLayout main_frame;
     private brand_fragment brand;
     private home_fragment home;
     private like_fragment like;
@@ -48,6 +52,8 @@ public class shoes_home extends AppCompatActivity {
     }
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +64,6 @@ public class shoes_home extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
                 switch(item.getItemId()){
                     case R.id.menu_search_btn:
                         setFrag(0);
@@ -80,8 +85,6 @@ public class shoes_home extends AppCompatActivity {
         menu_search = new menu_fragment();
         mypage = new mypage_fragment();
         setFrag(2);
-
-
 
     }
     //fragment 교체 실행문

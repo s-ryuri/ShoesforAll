@@ -4,16 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,54 +16,49 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.storage.StorageReference;
-
 import java.util.ArrayList;
 
-public class home_fragment extends Fragment {
-
-    private View view;
+public class ShowShoesBrand extends AppCompatActivity {
 
     private FirebaseFirestore db;
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private RecyclerView menu_recyclerView;
+    private RecyclerView.Adapter menu_adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ArrayList<Shoes> arrayList;
+    private ArrayList<MenuButton> menu_arraylist;
     private ProgressDialog progressDialog;
     private String []shoesName = {"control_shoes","cushion_shoes","stabilization_shoes"};
-    private String TAG = "heee";
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.home,container,false);
+    private String brandName;
 
-        progressDialog = new ProgressDialog(getActivity());
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_show_shoes_brand);
+
+        Intent getIntent = getIntent();
+        brandName = getIntent().getStringExtra("brand");
+        progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
-        progressDialog.setMessage("로딩중");
+        progressDialog.setMessage("로딩중입니다");
         progressDialog.show();
 
-        recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
+        menu_recyclerView = (RecyclerView) findViewById(R.id.menu_recyclerView);
+        menu_recyclerView.setHasFixedSize(true);
 
+        layoutManager = new LinearLayoutManager(this);
+        menu_recyclerView.setLayoutManager(layoutManager);
 
-        arrayList = new ArrayList<Shoes>();
+        menu_arraylist = new ArrayList<MenuButton>();
 
         db = FirebaseFirestore.getInstance();
-
-        adapter = new CustomAdapter(arrayList,getActivity());
-
-        layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
-
+        menu_adapter = new MenuButtonAdapter(menu_arraylist,this);
+        menu_recyclerView.setAdapter(menu_adapter);
         EventChangeListener();
 
-        return view;
     }
     private void EventChangeListener() {
         for(int i = 0; i<3;i++){
             final int index = i;
-            db.collection(shoesName[index]).orderBy("price", Query.Direction.ASCENDING)
+            db.collection(shoesName[index]).whereEqualTo("brand",brandName)
                     .addSnapshotListener(new EventListener<QuerySnapshot>() {
                         @Override
                         public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
@@ -83,9 +71,9 @@ public class home_fragment extends Fragment {
                             }
                             for(DocumentChange dc : value.getDocumentChanges()){
                                 if(dc.getType() == DocumentChange.Type.ADDED){
-                                    arrayList.add(dc.getDocument().toObject(Shoes.class));
+                                    menu_arraylist.add(dc.getDocument().toObject(MenuButton.class));
                                 }
-                                adapter.notifyDataSetChanged();
+                                menu_adapter.notifyDataSetChanged();
                                 if(progressDialog.isShowing()){
                                     progressDialog.dismiss();
                                 }
@@ -93,8 +81,6 @@ public class home_fragment extends Fragment {
                         }
                     });
         }
-
-
-
     }
+
 }

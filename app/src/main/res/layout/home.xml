@@ -92,44 +92,72 @@
                         android:src="@drawable/ic_apps_icon" />
                 </RelativeLayout>
 
-                <LinearLayout
+                <HorizontalScrollView
                     android:layout_width="match_parent"
                     android:layout_marginTop="21dp"
                     android:orientation="horizontal"
                     android:layout_marginBottom="21dp"
                     android:layout_height="wrap_content">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="0dp"
-                        android:layout_height="86dp"
-                        android:layout_weight="1"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:onClick="onClick"
-                         />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="86dp"
+                            android:layout_weight="1"
+                            android:id="@+id/category_adidas"
+                            android:src="@drawable/ic_adidas"
+                            android:onClick="onClick"
+                            android:background="?attr/selectableItemBackgroundBorderless"
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="0dp"
-                        android:layout_height="86dp"
-                        android:layout_weight="1"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:onClick="onClick"
-                        android:src="@drawable/ic_nike_icon" />
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="0dp"
-                        android:layout_height="86dp"
-                        android:layout_weight="1"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:onClick="onClick"
-                        android:src="@drawable/ic_bell_icon" />
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:layout_width="0dp"
-                        android:layout_height="86dp"
-                        android:layout_weight="1"
-                        android:background="?attr/selectableItemBackgroundBorderless"
-                        android:onClick="onClick"
-                        android:src="@drawable/ic_bell_icon" />
+                            />
 
-                </LinearLayout>
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="86dp"
+                            android:layout_weight="1"
+                            android:id="@+id/category_nike"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="onClick"
+                            android:src="@drawable/ic_nike_icon" />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="86dp"
+                            android:layout_weight="1"
+                            android:id="@+id/category_mizno"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="onClick"
+                            android:src="@drawable/ic_mizno" />
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="86dp"
+                            android:layout_weight="1"
+                            android:id="@+id/category_asics"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="onClick"
+                            android:src="@drawable/ic_asics" />
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="86dp"
+                            android:layout_weight="1"
+                            android:id="@+id/category_brooks"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="onClick"
+                            android:src="@drawable/ic_brooks" />
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="86dp"
+                            android:layout_weight="1"
+                            android:id="@+id/category_saucony"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="onClick"
+                            android:src="@drawable/ic_saucony" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
                 <RelativeLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"

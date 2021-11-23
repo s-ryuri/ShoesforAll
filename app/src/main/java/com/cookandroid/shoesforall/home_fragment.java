@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -39,6 +40,9 @@ public class home_fragment extends Fragment {
     private ProgressDialog progressDialog;
     private String []shoesName = {"control_shoes","cushion_shoes","stabilization_shoes"};
     private String TAG = "heee";
+    private ImageView[] brandBtn = new ImageView[6];
+    private Integer[] btnID = {R.id.category_adidas,R.id.category_asics,R.id.category_mizno,R.id.category_nike,R.id.category_brooks,R.id.category_saucony};
+    private String [] brandName = {"adidas","asics","mizno","nike","brooks","saucony"};
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,6 +67,19 @@ public class home_fragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
+        for(int i = 0;i<brandBtn.length;i++){
+            final int index = i;
+            brandBtn[index] = (ImageView) view.findViewById(btnID[index]);
+            brandBtn[index].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(),ShowShoesBrand.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    intent.putExtra("brand",brandName[index]);
+                    startActivity(intent);
+                }
+            });
+        }
         EventChangeListener();
 
         return view;

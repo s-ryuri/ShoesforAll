@@ -41,8 +41,8 @@ public class home_fragment extends Fragment {
     private String []shoesName = {"control_shoes","cushion_shoes","stabilization_shoes"};
     private String TAG = "heee";
     private ImageView[] brandBtn = new ImageView[6];
-    private Integer[] btnID = {R.id.category_adidas,R.id.category_asics,R.id.category_mizno,R.id.category_nike,R.id.category_brooks,R.id.category_saucony};
-    private String [] brandName = {"adidas","asics","mizno","nike","brooks","saucony"};
+    private Integer[] btnID = {R.id.category_adidas,R.id.category_asics,R.id.category_mizno,R.id.category_descente,R.id.category_nike,R.id.category_brooks,R.id.category_saucony};
+    private String [] brandName = {"adidas","asics","mizno","descente","nike","brooks","saucony"};
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -87,7 +87,7 @@ public class home_fragment extends Fragment {
     private void EventChangeListener() {
         for(int i = 0; i<3;i++){
             final int index = i;
-            db.collection(shoesName[index]).orderBy("price", Query.Direction.ASCENDING)
+            db.collection(shoesName[index]).orderBy("brand", Query.Direction.ASCENDING)
                     .addSnapshotListener(new EventListener<QuerySnapshot>() {
                         @Override
                         public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

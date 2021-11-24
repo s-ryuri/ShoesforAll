@@ -134,6 +134,14 @@
                             android:layout_width="0dp"
                             android:layout_height="86dp"
                             android:layout_weight="1"
+                            android:id="@+id/category_descente"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:onClick="onClick"
+                            android:src="@drawable/ic_descente1" />
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="86dp"
+                            android:layout_weight="1"
                             android:id="@+id/category_asics"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:onClick="onClick"
@@ -153,7 +161,7 @@
                             android:id="@+id/category_saucony"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:onClick="onClick"
-                            android:src="@drawable/ic_saucony" />
+                            android:src="@drawable/ic_saucony"/>
 
                     </LinearLayout>
 

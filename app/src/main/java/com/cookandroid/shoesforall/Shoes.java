@@ -7,17 +7,27 @@ public class Shoes {
     private String information;
     private String name;
     private String price;
+    private String shoes;
     public Shoes() {
 
     }
 
-    public Shoes(String brand, String description, String image, String information, String name, String price) {
+    public Shoes(String brand, String description, String image, String information, String name, String price,String shoes) {
         this.brand = brand;
         this.description = description;
         this.image = image;
         this.information = information;
         this.name = name;
         this.price = price;
+        this.shoes = shoes;
+    }
+
+    public String getShoes() {
+        return shoes;
+    }
+
+    public void setShoes(String shoes) {
+        this.shoes = shoes;
     }
 
     public String getBrand() {

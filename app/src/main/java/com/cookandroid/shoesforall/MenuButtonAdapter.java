@@ -37,7 +37,7 @@ public class MenuButtonAdapter extends RecyclerView.Adapter<MenuButtonAdapter.Me
 
         MenuButton menubtn = arrayList.get(position);
         Glide.with(holder.itemView).load(menubtn.getImage()).into(holder.menu_shoes_picture);
-        Log.d("picture","123");
+
         holder.menu_shoes_picture.setVisibility(View.VISIBLE);
         holder.show_text.setText(menubtn.getDescription());
 

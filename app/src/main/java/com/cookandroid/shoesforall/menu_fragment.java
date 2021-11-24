@@ -10,6 +10,8 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -30,36 +32,45 @@ import java.util.ArrayList;
 public class menu_fragment extends Fragment {
     private View view;
 
-    private Button[] btn = new Button[4];
-    private Integer[] btnID= {R.id.adidasBtn,R.id.desenteBtn,R.id.miznoBtn,R.id.asicsBtn};
+    private ImageView[] btn = new ImageView[6];
+    private Integer[] btnID= {R.id.adidasBtn,R.id.descenteBtn,R.id.miznoBtn,R.id.asicsBtn,R.id.brooksBtn,R.id.sauconyBtn};
+    private String [] brandName = {"adidas","descente","mizno","asics","brooks","saucony"};
+
+    private TextView[] btnTxt = new TextView[3];
+    private Integer[] btnTxtID = {R.id.control_shoes,R.id.cushion_shoes,R.id.stablize_shoes};
+    private String [] ShoesName = {"control_shoes","cushion_shoes","stabilization_shoes"};
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.menu_search,container,false);
 
-        for(int i = 0;i<4;i++){
+        for(int i = 0;i<6;i++){
             final int index = i;
-            btn[index] = (Button)view.findViewById(btnID[index]);
+            btn[index] = (ImageView) view.findViewById(btnID[index]);
             btn[index].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getActivity(),ShowShoesBrand.class);
-                    intent.putExtra("brand",btn[index].getText().toString());
+                    intent.putExtra("brand",brandName[index]);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                 }
             });
         }
-//        btn[0] = (Button)view.findViewById(R.id.adidasBtn);
-//        adidasBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //EventChangeListener();
-//                Intent intent = new Intent(getActivity(),ShowShoesBrand.class);
-//                intent.putExtra("brand",adidasBtn.getText().toString());
-//                startActivity(intent);
-//            }
-//        });
 
+        for(int i = 0;i<3;i++){
+            final int index = i;
+            btnTxt[index] = (TextView) view.findViewById(btnTxtID[index]);
+            btnTxt[index].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(),ShowShoesBrand.class);
+                    intent.putExtra("shoes",ShoesName[index]);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                }
+            });
+        }
         return view;
     }
 

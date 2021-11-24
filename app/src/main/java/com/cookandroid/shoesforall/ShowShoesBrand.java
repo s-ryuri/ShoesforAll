@@ -27,15 +27,22 @@ public class ShowShoesBrand extends AppCompatActivity {
     private ArrayList<MenuButton> menu_arraylist;
     private ProgressDialog progressDialog;
     private String []shoesName = {"control_shoes","cushion_shoes","stabilization_shoes"};
-    private String brandName;
-
+    private String findItem;
+    private String whereString,target;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_shoes_brand);
 
         Intent getIntent = getIntent();
-        brandName = getIntent().getStringExtra("brand");
+
+        findItem = getIntent().getStringExtra("brand");
+        Log.d("신발값","result : " + findItem);
+        target = "brand";
+        if(findItem == null){
+            findItem = getIntent().getStringExtra("shoes");
+            target = "shoes";
+        }
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
         progressDialog.setMessage("로딩중입니다");
@@ -58,7 +65,7 @@ public class ShowShoesBrand extends AppCompatActivity {
     private void EventChangeListener() {
         for(int i = 0; i<3;i++){
             final int index = i;
-            db.collection(shoesName[index]).whereEqualTo("brand",brandName)
+            db.collection(shoesName[index]).whereEqualTo(target,findItem)
                     .addSnapshotListener(new EventListener<QuerySnapshot>() {
                         @Override
                         public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

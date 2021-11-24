@@ -88,36 +88,47 @@
             android:id="@+id/sauconyBtn"
             android:src="@drawable/ic_saucony"
              />
-
-        <ImageView
-            android:layout_row="4"
-            android:layout_rowWeight="1"
-            android:layout_column="0"
-            android:layout_height="100dp"
-            android:layout_columnWeight="1"
-            android:text="7번" />
-
-        <ImageView
-            android:layout_row="4"
-            android:layout_rowWeight="1"
-            android:layout_column="1"
-            android:layout_columnWeight="1"
-            android:text="8번" />
-
-        <ImageView
+        <TextView
             android:layout_row="5"
             android:layout_rowWeight="1"
             android:layout_column="0"
             android:layout_height="100dp"
             android:layout_columnWeight="1"
-            android:text="9번" />
+            android:gravity="center"
+            android:fontFamily="@font/nanumsquareroundeb"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:id="@+id/control_shoes"
+            android:onClick="onClick"
+            android:text="제어화" />
 
-        <ImageView
-            android:layout_row="5"
+        <TextView
+            android:layout_row="4"
             android:layout_rowWeight="1"
             android:layout_column="1"
             android:layout_columnWeight="1"
-            android:text="10번" />
+            android:gravity="center"
+            android:fontFamily="@font/nanumsquareroundeb"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:id="@+id/cushion_shoes"
+            android:onClick="onClick"
+            android:text="쿠션화" />
+        <TextView
+            android:layout_row="4"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:gravity="center"
+            android:id="@+id/stablize_shoes"
+            android:fontFamily="@font/nanumsquareroundeb"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:onClick="onClick"
+            android:text="안정화" />
+
+
 
     </GridLayout>
 

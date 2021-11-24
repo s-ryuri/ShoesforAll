@@ -60,7 +60,6 @@ public class home_fragment extends Fragment {
         arrayList = new ArrayList<Shoes>();
 
         db = FirebaseFirestore.getInstance();
-
         adapter = new CustomAdapter(arrayList,getActivity());
 
         layoutManager = new LinearLayoutManager(getActivity());

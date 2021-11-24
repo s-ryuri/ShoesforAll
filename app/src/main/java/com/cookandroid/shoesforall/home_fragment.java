@@ -2,6 +2,7 @@ package com.cookandroid.shoesforall;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -43,6 +44,7 @@ public class home_fragment extends Fragment {
     private ImageView[] brandBtn = new ImageView[6];
     private Integer[] btnID = {R.id.category_adidas,R.id.category_asics,R.id.category_mizno,R.id.category_descente,R.id.category_nike,R.id.category_brooks,R.id.category_saucony};
     private String [] brandName = {"adidas","asics","mizno","descente","nike","brooks","saucony"};
+    private TextView member;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -80,7 +82,14 @@ public class home_fragment extends Fragment {
             });
         }
         EventChangeListener();
-
+        member = (TextView) view.findViewById(R.id.member);
+        member.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/sminju98/ShoesforAll"));
+                startActivity(intent);
+            }
+        });
         return view;
     }
     private void EventChangeListener() {

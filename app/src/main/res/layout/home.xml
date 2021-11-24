@@ -222,6 +222,7 @@
                         android:gravity="center"
                         android:layout_height="wrap_content"
                         android:text="멤버 소개"
+                        android:id="@+id/member"
                         android:textColor="@color/colorWhite"/>
                     <TextView
                         android:layout_width="0dp"

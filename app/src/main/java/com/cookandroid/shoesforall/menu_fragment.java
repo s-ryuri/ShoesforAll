@@ -2,6 +2,7 @@ package com.cookandroid.shoesforall;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,6 +40,7 @@ public class menu_fragment extends Fragment {
     private TextView[] btnTxt = new TextView[3];
     private Integer[] btnTxtID = {R.id.control_shoes,R.id.cushion_shoes,R.id.stablize_shoes};
     private String [] ShoesName = {"control_shoes","cushion_shoes","stabilization_shoes"};
+    private TextView member;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -71,6 +73,7 @@ public class menu_fragment extends Fragment {
                 }
             });
         }
+
         return view;
     }
 

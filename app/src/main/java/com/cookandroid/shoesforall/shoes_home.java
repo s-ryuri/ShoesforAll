@@ -48,7 +48,7 @@ public class shoes_home extends AppCompatActivity {
         }else{
             //한 번 눌렀을 때
             backBtnTime = curTime; //현재 시간으로
-            Toast.makeText(getApplicationContext(),"한 번 더 누르면 종료됩니다.!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"한 번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
         }
 
     }

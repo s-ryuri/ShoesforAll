@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShoesforAll">
         <activity
+            android:name=".SearchScreen"
+            android:exported="false" />
+        <activity
             android:name=".ShowShoesBrand"
             android:exported="false" />
         <activity

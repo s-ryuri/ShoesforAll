@@ -45,6 +45,7 @@ public class home_fragment extends Fragment {
     private Integer[] btnID = {R.id.category_adidas,R.id.category_asics,R.id.category_mizno,R.id.category_descente,R.id.category_nike,R.id.category_brooks,R.id.category_saucony};
     private String [] brandName = {"adidas","asics","mizno","descente","nike","brooks","saucony"};
     private TextView member;
+    private ImageButton search_btn;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -87,6 +88,16 @@ public class home_fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/sminju98/ShoesforAll"));
+                startActivity(intent);
+            }
+        });
+
+        search_btn = (ImageButton) view.findViewById(R.id.search_btn);
+        search_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),SearchScreen.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
         });

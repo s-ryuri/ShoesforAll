@@ -37,7 +37,7 @@ public class ShowShoesBrand extends AppCompatActivity {
         Intent getIntent = getIntent();
 
         findItem = getIntent().getStringExtra("brand");
-        Log.d("신발값","result : " + findItem);
+        //Log.d("신발값","result : " + findItem);
         target = "brand";
         if(findItem == null){
             findItem = getIntent().getStringExtra("shoes");

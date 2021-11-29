@@ -10,6 +10,7 @@ public class MenuButton {
     private String name;
     private String price;
     private String shoes;
+
     public MenuButton(){}
     public MenuButton(String brand, String description, String image, String information, String name, String price, String shoes) {
         this.brand = brand;

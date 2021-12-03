@@ -6,12 +6,18 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.Touch;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -21,7 +27,7 @@ public class shoes_home extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private FragmentTransaction ft;
     private FragmentManager fm;
-
+    private FrameLayout main_frame;
     private brand_fragment brand;
     private home_fragment home;
     private like_fragment like;
@@ -42,10 +48,12 @@ public class shoes_home extends AppCompatActivity {
         }else{
             //한 번 눌렀을 때
             backBtnTime = curTime; //현재 시간으로
-            Toast.makeText(getApplicationContext(),"한 번 더 누르면 종료됩니다.!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"한 번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
         }
 
     }
+
+
 
 
     @Override
@@ -58,7 +66,6 @@ public class shoes_home extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
                 switch(item.getItemId()){
                     case R.id.menu_search_btn:
                         setFrag(0);

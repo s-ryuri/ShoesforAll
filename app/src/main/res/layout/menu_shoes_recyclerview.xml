@@ -1,36 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     android:orientation="vertical"
+    android:layout_width="match_parent"
     android:gravity="center"
-    android:layout_margin="16dp"
+    android:background="#FFFFFF"
     android:layout_height="wrap_content">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/homeimg_btn"
-        android:visibility="visible"
+        android:id="@+id/menu_shoes_picture"
         android:src="@drawable/ic_launcher_background"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/brand_text"/>
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:id="@+id/show_text"
+        android:text="묘사"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/description_text"/>
+        android:visibility="gone"
+        android:id="@+id/menu_brand_text"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/information_text"/>
+        android:visibility="gone"
+        android:id="@+id/menu_description_text"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/name_text"/>
+        android:visibility="gone"
+        android:id="@+id/menu_information_text"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/price_text"/>
+        android:visibility="gone"
+        android:id="@+id/menu_name_text"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/menu_price_text"/>
 </LinearLayout>

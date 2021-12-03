@@ -37,16 +37,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
         Shoes shoes = arrayList.get(position);
         Glide.with(holder.itemView).load(shoes.getImage()).into(holder.homeimg_btn);
 
-        holder.brand_text.setText(arrayList.get(position).getBrand());
+        holder.brand_text.setText(shoes.getBrand());
         holder.brand_text.setVisibility(View.GONE);
 
-        holder.description_text.setText(arrayList.get(position).getDescription());
+        holder.description_text.setText(shoes.getDescription());
         holder.description_text.setVisibility(View.GONE);
 
-        holder.information_text.setText(arrayList.get(position).getInformation());
+        holder.information_text.setText(shoes.getInformation());
         holder.information_text.setVisibility(View.GONE);
 
-        holder.price_text.setText(arrayList.get(position).getPrice());
+        holder.price_text.setText(shoes.getPrice());
         holder.price_text.setVisibility(View.GONE);
 
     }
@@ -60,6 +60,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
         ImageView homeimg_btn;
         TextView brand_text,description_text,information_text,name_text,price_text;
+
         public CustomViewHolder(@NonNull View itemView) {
             super(itemView);
 

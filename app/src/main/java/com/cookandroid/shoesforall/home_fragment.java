@@ -2,11 +2,13 @@ package com.cookandroid.shoesforall;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,8 +30,8 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 
 public class home_fragment extends Fragment {
-    private View view;
 
+    private View view;
 
     private FirebaseFirestore db;
     private RecyclerView recyclerView;
@@ -39,6 +41,11 @@ public class home_fragment extends Fragment {
     private ProgressDialog progressDialog;
     private String []shoesName = {"control_shoes","cushion_shoes","stabilization_shoes"};
     private String TAG = "heee";
+    private ImageView[] brandBtn = new ImageView[6];
+    private Integer[] btnID = {R.id.category_adidas,R.id.category_asics,R.id.category_mizno,R.id.category_descente,R.id.category_nike,R.id.category_brooks,R.id.category_saucony};
+    private String [] brandName = {"adidas","asics","mizno","descente","nike","brooks","saucony"};
+    private TextView member;
+    private ImageButton search_btn;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,18 +64,49 @@ public class home_fragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
         adapter = new CustomAdapter(arrayList,getActivity());
+
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
 
+        for(int i = 0;i<brandBtn.length;i++){
+            final int index = i;
+            brandBtn[index] = (ImageView) view.findViewById(btnID[index]);
+            brandBtn[index].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(),ShowShoesBrand.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    intent.putExtra("brand",brandName[index]);
+                    startActivity(intent);
+                }
+            });
+        }
         EventChangeListener();
+        member = (TextView) view.findViewById(R.id.member);
+        member.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/sminju98/ShoesforAll"));
+                startActivity(intent);
+            }
+        });
 
+        search_btn = (ImageButton) view.findViewById(R.id.search_btn);
+        search_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),SearchScreen.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+            }
+        });
         return view;
     }
     private void EventChangeListener() {
         for(int i = 0; i<3;i++){
             final int index = i;
-            db.collection(shoesName[index]).orderBy("price", Query.Direction.ASCENDING)
+            db.collection(shoesName[index]).orderBy("brand", Query.Direction.ASCENDING)
                     .addSnapshotListener(new EventListener<QuerySnapshot>() {
                         @Override
                         public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {

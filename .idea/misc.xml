@@ -6,19 +6,10 @@
         <entry key="../ShoesForAll/app/src/main/res/drawable-v24/ic_baseline_arrow_back_ios_24.xml" value="0.1328125" />
         <entry key="../ShoesForAll/app/src/main/res/drawable-v24/radius_24dp_corner.xml" value="0.1328125" />
         <entry key="../ShoesForAll/app/src/main/res/drawable-v24/rectangle_login.xml" value="0.1328125" />
-        <entry key="../ShoesForAll/app/src/main/res/drawable/ic_baseline_arrow_forward_ios_24.xml" value="0.1796875" />
-        <entry key="../ShoesForAll/app/src/main/res/drawable/lightgray_textview.xml" value="0.22685185185185186" />
-        <entry key="../ShoesForAll/app/src/main/res/drawable/rectangle_20.xml" value="0.22685185185185186" />
-        <entry key="../ShoesForAll/app/src/main/res/layout/activity_agree.xml" value="0.16354166666666667" />
-        <entry key="../ShoesForAll/app/src/main/res/layout/activity_find_password.xml" value="0.15520833333333334" />
         <entry key="../ShoesForAll/app/src/main/res/layout/activity_login.xml" value="0.16354166666666667" />
-        <entry key="../ShoesForAll/app/src/main/res/layout/activity_main.xml" value="0.22239583333333332" />
-        <entry key="../ShoesForAll/app/src/main/res/layout/activity_order_bot_sheet.xml" value="0.22239583333333332" />
         <entry key="../ShoesForAll/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
-        <entry key="../ShoesForAll/app/src/main/res/layout/activity_web_view.xml" value="0.21354166666666666" />
-        <entry key="../ShoesForAll/app/src/main/res/layout/gray_rectangle.xml" value="0.22239583333333332" />
         <entry key="../ShoesForAll/app/src/main/res/layout/home.xml" value="0.23385416666666667" />
-        <entry key="../ShoesForAll/app/src/main/res/layout/mypage.xml" value="0.1" />
+        <entry key="..\:/CookAndroid/SDK/platforms/android-31/data/res/layout/select_dialog_singlechoice.xml" value="0.36614583333333334" />
         <entry key="..\:/CookAndroid/SDK/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.18385416666666668" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/drawable/ic_baseline_menu_24.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/activity_detail_page.xml" value="0.23034188034188033" />
@@ -32,11 +23,45 @@
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/layout/mypage.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/menu/bottom_menu.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll/app/src/main/res/menu/detail_bottom_menu.xml" value="0.3004273504273504" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/drawable/order_button_bg.xml" value="0.37407407407407406" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/drawable/order_button_not_bg.xml" value="0.3359375" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/drawable/order_button_selector.xml" value="0.3359375" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/drawable/spinner_background.xml" value="0.3764102564102564" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/layout/activity_detail_page.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/layout/activity_order_bot_sheet.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/layout/activity_order_page.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/layout/activity_shoes_home.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/layout/home.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/layout/menu_search.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/layout/order_bottom_sheet.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/layout/order_spinner_style.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/layout/shoes_cnt_recyclerview.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/layout/toast.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/menu/bottom_menu.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/menu/delivery_menu.xml" value="0.23148148148148148" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll2/app/src/main/res/menu/options_menu.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/activity_detail_page.xml" value="0.29739583333333336" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/activity_main.xml" value="0.29739583333333336" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/activity_order_bot_sheet.xml" value="0.31614583333333335" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/activity_order_page.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/activity_search.xml" value="0.246875" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/activity_search_screen.xml" value="0.3233695652173913" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/activity_shoes_home.xml" value="0.29739583333333336" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/activity_show_menu_shoes.xml" value="0.17806484295845998" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/activity_show_shoes_brand.xml" value="0.4" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/activity_sign_up.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/activity_web_view.xml" value="0.19739583333333333" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/home.xml" value="0.25" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/main_recyclerview.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/menu_search.xml" value="0.33" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/menu_shoes_recyclerview.xml" value="0.264" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/mypage.xml" value="0.3233695652173913" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/search_listview.xml" value="0.3233695652173913" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/shoes_cnt_recyclerview.xml" value="0.24139492753623187" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/layout/showshoesbrand.xml" value="0.3140625" />
+        <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll3/app/src/main/res/menu/options_menu.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll_/app/src/main/res/drawable/ic_adidas_icon.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll_/app/src/main/res/drawable/ic_bell_icon.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/Ryool/AndroidStudioProjects/ShoesforAll_/app/src/main/res/drawable/spinner_background.xml" value="0.38229166666666664" />

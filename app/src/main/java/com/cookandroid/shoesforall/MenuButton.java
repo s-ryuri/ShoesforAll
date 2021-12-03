@@ -1,6 +1,8 @@
 package com.cookandroid.shoesforall;
 
-public class Shoes {
+import android.view.Menu;
+
+public class MenuButton {
     private String brand;
     private String description;
     private String image;
@@ -8,11 +10,9 @@ public class Shoes {
     private String name;
     private String price;
     private String shoes;
-    public Shoes() {
 
-    }
-
-    public Shoes(String brand, String description, String image, String information, String name, String price,String shoes) {
+    public MenuButton(){}
+    public MenuButton(String brand, String description, String image, String information, String name, String price, String shoes) {
         this.brand = brand;
         this.description = description;
         this.image = image;

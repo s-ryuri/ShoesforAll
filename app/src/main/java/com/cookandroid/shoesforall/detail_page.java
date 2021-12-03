@@ -1,20 +1,11 @@
 package com.cookandroid.shoesforall;
 
 
-import static android.widget.ArrayAdapter.createFromResource;
-
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,16 +13,16 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -43,13 +34,8 @@ public class detail_page extends AppCompatActivity {
     private ImageButton back_btn,home_detail_btn;
     private String imgUrl;
     private Spinner spinner;
-
-    private ImageButton x_btn;
     private Button buying_btn,btnOk;
-
     private ArrayList<Shoes_cnt> shoes_list; //리사이클러뷰에 들어가는 리스트
-
-
     private ShoesCntAdapter shoesCntAdapter;
     private RecyclerView shoes_cnt_recyclerview;
     HashMap<String,Integer> size_map = new HashMap<String,Integer>();
@@ -97,7 +83,6 @@ public class detail_page extends AppCompatActivity {
                     }
                 }
 
-                //size_map.replace(shoes.getShoesSize_txt(),shoes.getShoesSize_cnt());
                 size_map.remove(shoes.getShoesSize_txt()); //이미 선택된거 확인할 때
 
                 shoesize_txt.setText("상품 " + Integer.toString(shoestotal())+"개");
@@ -105,8 +90,6 @@ public class detail_page extends AppCompatActivity {
 
                 shoesCntAdapter.notifyItemRemoved(position);
                 shoesCntAdapter.notifyDataSetChanged();
-//                shoes_cnt_recyclerview.removeAllViewsInLayout();
-//                shoes_cnt_recyclerview.setAdapter(shoesCntAdapter);
 
             }
 
@@ -117,7 +100,6 @@ public class detail_page extends AppCompatActivity {
                 shoesCntAdapter.notifyDataSetChanged();
                 shoesize_txt.setText("상품 " + Integer.toString(shoestotal())+"개");
                 total_shoes_cost.setText(Integer.toString(shoestotal() * Integer.parseInt(price_txt.getText().toString())) + "원");
-
             }
 
             @RequiresApi(api = Build.VERSION_CODES.N)
@@ -148,7 +130,7 @@ public class detail_page extends AppCompatActivity {
                     intent.putExtra("total_cost",price_data);
                     intent.putExtra("shoes_count",shoes_cnt);
                     intent.putExtra("total_count",count_data);
-
+                    intent.putExtra("shoes_image",imgUrl);
                     for(int i = 0;i<shoes_list.size();i++){
                         intent.putExtra("shoes_size" + Integer.toString(i+1),shoes_list.get(i).getShoesSize_txt());
                     }
@@ -172,7 +154,6 @@ public class detail_page extends AppCompatActivity {
 
 
         shoes_cnt_recyclerview.setAdapter(shoesCntAdapter);
-
 
         //신발 이름이랑, 신발 가격 초기화
         shoesize_txt = view.findViewById(R.id.shoesize_txt);

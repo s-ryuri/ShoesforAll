@@ -11,13 +11,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
-import com.google.android.material.button.MaterialButton;
 
 public class AgreeActivity extends AppCompatActivity {
     private CheckBox checkBox;
     private CheckBox checkBox1;
     private CheckBox checkBox2;
-    private CheckBox checkBox3;
     private CheckBox checkBox4;
     private CheckBox checkBox5;
     private Button backButton;
@@ -34,7 +32,6 @@ public class AgreeActivity extends AppCompatActivity {
         checkBox = (CheckBox) findViewById(R.id.checkBox);
         checkBox1 = (CheckBox) findViewById(R.id.checkBox1);
         checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
-        checkBox3 = (CheckBox) findViewById(R.id.checkBox3);
         checkBox4 = (CheckBox) findViewById(R.id.checkBox4);
         checkBox5 = (CheckBox) findViewById(R.id.checkBox5);
 
@@ -65,13 +62,11 @@ public class AgreeActivity extends AppCompatActivity {
                 if (checkBox.isChecked()) {
                     checkBox1.setChecked(true);
                     checkBox2.setChecked(true);
-                    checkBox3.setChecked(true);
                     checkBox4.setChecked(true);
                     checkBox5.setChecked(true);
                 } else {
                     checkBox1.setChecked(false);
                     checkBox2.setChecked(false);
-                    checkBox3.setChecked(false);
                     checkBox4.setChecked(false);
                     checkBox5.setChecked(false);
                 }
@@ -102,16 +97,6 @@ public class AgreeActivity extends AppCompatActivity {
             }
         });
 
-        checkBox3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                if (checkBox3.isChecked()) {
-                    checkChecked(); }
-                else {checkBox.setChecked(false);
-                    checkChecked(); }
-            }
-        });
         checkBox4.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -138,15 +123,13 @@ public class AgreeActivity extends AppCompatActivity {
         String color;
 
 
-        if (checkBox1.isChecked() && checkBox2.isChecked() && checkBox3.isChecked()
-                && checkBox4.isChecked() && checkBox5.isChecked()) {
+        if (checkBox1.isChecked() && checkBox2.isChecked() && checkBox4.isChecked() && checkBox5.isChecked()) {
             checkBox.setChecked(true);
         } else {
             checkBox.setChecked(false);
         }
 
-        if (checkBox1.isChecked() && checkBox2.isChecked()
-                && checkBox3.isChecked() && checkBox4.isChecked()) {
+        if (checkBox1.isChecked() && checkBox2.isChecked()&& checkBox4.isChecked()) {
             emailSignupButton.setEnabled(true);
             color = "#000000";
         } else {
@@ -173,12 +156,6 @@ public class AgreeActivity extends AppCompatActivity {
                 intent.putExtra("NUMBER", 2);
                 startActivity(intent);
 
-            case R.id.arrow3:
-                intent = new Intent(AgreeActivity.this, WebViewActivity.class);
-                intent.putExtra("TYPE", "AGREE");
-                intent.putExtra("NUMBER", 3);
-                startActivity(intent);
-                break;
             case R.id.arrow4:
                 intent = new Intent(AgreeActivity.this, WebViewActivity.class);
                 intent.putExtra("TYPE", "AGREE");

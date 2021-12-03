@@ -17,6 +17,7 @@ public class WebViewActivity extends AppCompatActivity {
     private static final String TAG = "WebView";
     private String type;
     private Integer number;
+    private Integer pay;
     private String url;
     private WebView webView;
 
@@ -29,8 +30,6 @@ public class WebViewActivity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.webView);
         type = intent.getStringExtra("TYPE");
         number = intent.getIntExtra("NUMBER", 0);
-        Toast.makeText(WebViewActivity.this, type, Toast.LENGTH_LONG).show();
-
         setWebView();
     }
 
@@ -51,9 +50,7 @@ public class WebViewActivity extends AppCompatActivity {
                 case 5:
                     url = "https://www.drugunicorn.com/agree.html";
                     break;
-                default:
-                    url = "https://m.google.com/";
-                    break;
+
             }
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient()); // 현재 앱을 나가서 새로운 브라우저를 열지 않도록 함.

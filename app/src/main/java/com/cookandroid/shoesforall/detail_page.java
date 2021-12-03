@@ -120,7 +120,7 @@ public class detail_page extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(shoes_list.size() > 0){
-                    String price_data = Integer.toString( shoestotal() * Integer.parseInt(price_txt.getText().toString())) + "원";
+                    String price_data = Integer.toString( shoestotal() * Integer.parseInt(price_txt.getText().toString()));
                     String count_data = Integer.toString(shoestotal());
                     String shoes_cnt = Integer.toString(shoes_list.size());
 

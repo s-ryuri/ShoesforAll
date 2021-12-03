@@ -29,9 +29,10 @@ public class order_page extends AppCompatActivity {
     private Spinner delivery_spinner;
     private EditText order_edt;
     private ArrayAdapter<CharSequence> delivery_adapter;
-    private TextView order_page_shoes_price,order_page_shoes_cnt,order_page_shoes_size,order_page_shoes_name;
+    private TextView buyerName, order_page_shoes_price,order_page_shoes_cnt,order_page_shoes_size,order_page_shoes_name;
     private Button order_buy_btn;
     private TabHost tabHost;
+    private String data;
     private ImageView order_page_shoes_picture;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class order_page extends AppCompatActivity {
         order_page_shoes_cnt = (TextView)findViewById(R.id.order_page_shoes_cnt);
         order_page_shoes_size = (TextView)findViewById(R.id.order_page_shoes_size);
         order_page_shoes_name = (TextView) findViewById(R.id.order_page_shoes_name);
+        buyerName = (TextView) findViewById(R.id.buyerName);
         order_page_shoes_picture = (ImageView) findViewById(R.id.order_page_shoes_picture);
         order_edt = (EditText)findViewById(R.id.order_edt);
 
@@ -52,12 +54,11 @@ public class order_page extends AppCompatActivity {
         delivery_spinner.setAdapter(delivery_adapter);
 
         Intent delivery_intent = getIntent();
-
-        String data = delivery_intent.getStringExtra("total_cost");
+        data = delivery_intent.getStringExtra("total_cost");
         String total_count = delivery_intent.getStringExtra("total_count");
-        order_page_shoes_price.setText(data);
+        order_page_shoes_price.setText(data+"");
         order_page_shoes_cnt.setText("수량 : "+total_count+"개");
-        order_buy_btn.setText(data +" 결제하기");
+        order_buy_btn.setText(data +"원 결제하기");
         order_page_shoes_name.setText(delivery_intent.getStringExtra("shoes_name"));
 
 
@@ -103,6 +104,24 @@ public class order_page extends AppCompatActivity {
         ts2.setContent(R.id.content2) ;
         ts2.setIndicator("교환") ;
         tabHost.addTab(ts2)  ;
+
+    }
+
+
+    public void onClick(View view) {
+        Intent intent;
+
+        switch (view.getId()) {
+            case R.id.order_buy_btn:
+                intent = new Intent(order_page.this, PayActivity.class);
+                intent.putExtra("TYPE", "BUY");
+                intent.putExtra("PRICE", data);
+                intent.putExtra("BUYER", buyerName.getText());
+
+                intent.putExtra("ITEM", order_page_shoes_name.getText());
+                startActivity(intent);
+                break;
+        }
 
     }
 }

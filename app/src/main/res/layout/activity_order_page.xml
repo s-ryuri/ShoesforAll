@@ -36,6 +36,7 @@
                     android:text="배송지"
                     />
                 <TextView
+                    android:id="@+id/buyerName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
@@ -288,122 +289,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:padding="8dp"
-                    android:textSize="16sp"
-                    android:background="#000000"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginBottom="8dp"
-                    android:text="결제 정보"/>
-
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:columnCount="3"
-                    android:rowCount="4">
-
-                    <Button
-                        android:layout_row="0"
-                        android:layout_column="0"
-                        android:layout_rowWeight="1"
-                        android:layout_margin="3dp"
-                        android:textColor="@color/order_button_textcolor"
-                        android:background="@drawable/order_button_selector"
-                        android:layout_columnWeight="1"
-                        android:text="신용카드" />
-                    <Button
-                        android:layout_row="0"
-                        android:layout_column="1"
-                        android:layout_rowWeight="1"
-                        android:layout_margin="3dp"
-                        android:background="@drawable/order_button_selector"
-                        android:layout_columnWeight="1"
-                        android:textColor="@color/order_button_textcolor"
-                        android:text="가상계좌" />
-                    <Button
-                        android:layout_row="0"
-                        android:layout_column="2"
-                        android:layout_margin="3dp"
-                        android:background="@drawable/order_button_selector"
-                        android:layout_rowWeight="1"
-                        android:textColor="@color/order_button_textcolor"
-                        android:layout_columnWeight="1"
-                        android:text="계좌이체" />
-
-                    <Button
-                        android:layout_row="1"
-                        android:layout_column="0"
-                        android:layout_rowWeight="1"
-                        android:layout_margin="3dp"
-                        android:textColor="@color/order_button_textcolor"
-                        android:background="@drawable/order_button_selector"
-                        android:layout_columnWeight="1"
-                        android:text="휴대폰결제" />
-                    <Button
-                        android:layout_row="1"
-                        android:layout_column="1"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="3dp"
-                        android:textColor="@color/order_button_textcolor"
-                        android:background="@drawable/order_button_selector"
-                        android:text="토스" />
-                    <Button
-                        android:layout_row="1"
-                        android:layout_column="2"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:textColor="@color/order_button_textcolor"
-                        android:layout_margin="3dp"
-                        android:background="@drawable/order_button_selector"
-                        android:text="카카오페이" />
-
-                    <Button
-                        android:layout_row="2"
-                        android:layout_column="0"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="3dp"
-                        android:textColor="@color/order_button_textcolor"
-                        android:background="@drawable/order_button_selector"
-                        android:text="삼성페이" />
-                    <Button
-                        android:layout_row="2"
-                        android:layout_column="1"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="3dp"
-                        android:textColor="@color/order_button_textcolor"
-                        android:background="@drawable/order_button_selector"
-                        android:text="네이버페이" />
-                    <Button
-                        android:layout_row="2"
-                        android:layout_column="2"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="3dp"
-                        android:textColor="@color/order_button_textcolor"
-                        android:background="@drawable/order_button_selector"
-                        android:text="차이페이" />
-                    <Button
-                        android:layout_row="3"
-                        android:layout_column="0"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_margin="3dp"
-                        android:textColor="@color/order_button_textcolor"
-                        android:background="@drawable/order_button_selector"
-                        android:text="페이코" />
-                </GridLayout>
-            </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -534,12 +419,13 @@
 
     <Button
         android:id="@+id/order_buy_btn"
+        android:onClick="onClick"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:backgroundTint="#458EFF"
         android:letterSpacing="0.05"
-        android:text="10만원으로 구매하기"
+        android:text="구매하기"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold" />

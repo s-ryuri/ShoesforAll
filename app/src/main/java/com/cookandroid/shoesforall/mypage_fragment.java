@@ -27,6 +27,11 @@ public class mypage_fragment extends Fragment {
         view = inflater.inflate(R.layout.mypage,container,false);
         auth = FirebaseAuth.getInstance();
 
+
+
+
+
+
         logoutButton = view.findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override

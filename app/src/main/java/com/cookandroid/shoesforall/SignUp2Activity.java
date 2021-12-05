@@ -58,10 +58,10 @@ public class SignUp2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Map<String, Object> data = new HashMap<>();
-                data.put("이름", nameEditText.getText().toString());
-                data.put("전화번호", phoneNumberEditText.getText().toString());
-                data.put("주소", addressEditText.getText().toString());
-                data.put("가입일", new Timestamp(new Date()));
+                data.put("name", nameEditText.getText().toString());
+                data.put("phoneNumber", phoneNumberEditText.getText().toString());
+                data.put("address", addressEditText.getText().toString());
+                data.put("timestamp", new Timestamp(new Date()));
 
                 db.collection("Users").document(auth.getUid())
                         .set(data)

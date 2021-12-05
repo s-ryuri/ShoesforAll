@@ -1,4 +1,4 @@
-package com.cookandroid.shoesforall;
+package com.cookandroid.shoesforall.DataModel;
 
 public class Shoes {
     private String brand;

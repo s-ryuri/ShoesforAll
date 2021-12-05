@@ -1,10 +1,11 @@
 package com.cookandroid.shoesforall;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,22 +15,26 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class order_page extends AppCompatActivity {
 
 
+    private FirebaseAuth auth;
+    private FirebaseFirestore db;
     private Spinner delivery_spinner;
     private EditText order_edt;
     private ArrayAdapter<CharSequence> delivery_adapter;
-    private TextView buyerName, order_page_shoes_price,order_page_shoes_cnt,order_page_shoes_size,order_page_shoes_name;
+    private TextView order_page_shoes_price,order_page_shoes_cnt,order_page_shoes_size,order_page_shoes_name;
+    private TextView buyerName,phoneNumber,address;
     private Button order_buy_btn;
     private TabHost tabHost;
     private String data;
@@ -38,13 +43,19 @@ public class order_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_page);
+        auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         order_buy_btn = (Button)findViewById(R.id.order_buy_btn);
         order_page_shoes_price = (TextView)findViewById(R.id.order_page_shoes_price);
         order_page_shoes_cnt = (TextView)findViewById(R.id.order_page_shoes_cnt);
         order_page_shoes_size = (TextView)findViewById(R.id.order_page_shoes_size);
         order_page_shoes_name = (TextView) findViewById(R.id.order_page_shoes_name);
-        buyerName = (TextView) findViewById(R.id.buyerName);
+        buyerName = (EditText) findViewById(R.id.buyerName);
+        phoneNumber = (EditText) findViewById(R.id.phoneNumberEditText);
+        address = (EditText) findViewById(R.id.addressEditText);
+
+
         order_page_shoes_picture = (ImageView) findViewById(R.id.order_page_shoes_picture);
         order_edt = (EditText)findViewById(R.id.order_edt);
 
@@ -52,6 +63,28 @@ public class order_page extends AppCompatActivity {
         delivery_adapter = ArrayAdapter.createFromResource(this,R.array.delivery, R.layout.order_spinner_style);
         delivery_adapter.setDropDownViewResource(android.R.layout.select_dialog_singlechoice);
         delivery_spinner.setAdapter(delivery_adapter);
+
+
+        DocumentReference docRef = db.collection("Users").document(auth.getUid());
+        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        buyerName.setText("회원명 : "+document.get("name").toString());
+                        phoneNumber.setText("휴대전화번호 : "+document.get("phoneNumber").toString());
+                        address.setText("주소 : "+document.get("address").toString());
+
+                        } else {
+                        Log.e("1", "No such document");
+                    }
+                } else {
+                    Log.e("1", "No such document");
+                }
+            }
+        });
+
 
         Intent delivery_intent = getIntent();
         data = delivery_intent.getStringExtra("total_cost");

@@ -4,11 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +28,7 @@ public class SignUpActivity extends AppCompatActivity {
     private Button emailSignupButton;
     private TextInputEditText emailEditText;
     private TextInputEditText passwordEditText;
+    private TextInputEditText passwordReEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
         emailSignupButton = (Button) findViewById(R.id.emailSignupButton);
         emailEditText = (TextInputEditText) findViewById(R.id.emailEditText);
         passwordEditText = (TextInputEditText) findViewById(R.id.passwordEditText);
+        passwordReEditText = (TextInputEditText) findViewById(R.id.passwordReEditText);
 
         auth = FirebaseAuth.getInstance();
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +57,48 @@ public class SignUpActivity extends AppCompatActivity {
                 signupEmail();
             }
         });
+        passwordEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (passwordEditText.getText().toString().equals(passwordReEditText.getText().toString())) {
+                    emailSignupButton.setEnabled(true);
+
+                } else {
+                    emailSignupButton.setEnabled(false);
+                }
+            }
+        });
+        passwordReEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (passwordEditText.getText().toString().equals(passwordReEditText.getText().toString())) {
+
+                    emailSignupButton.setEnabled(true);
+
+                } else {
+                    emailSignupButton.setEnabled(false);
+                }
+            }
+
+        });
     }
 
     private void signupEmail() {
@@ -61,7 +108,7 @@ public class SignUpActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(SignUpActivity.this, "회원가입에 성공하셨습니다. 이메일 인증을 받아주세요.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(SignUpActivity.this, "이메일 인증을 받고 회원정보를 입력해주세요.", Toast.LENGTH_LONG).show();
                             sendVerificationEmail();
                         } else {// If sign in fails, display a message to the user.
                             Toast.makeText(SignUpActivity.this, "회원가입 실패.", Toast.LENGTH_LONG).show();
@@ -70,15 +117,14 @@ public class SignUpActivity extends AppCompatActivity {
                 });
     }
 
-
     private void sendVerificationEmail() {
         FirebaseUser user = auth.getCurrentUser();
         String url = "https://us-central1-alicorn-ff5a3.cloudfunctions.net/activateUser?uid=" + user.getUid();
         Log.e("url", url);
 
         ActionCodeSettings actionCodeSettings = ActionCodeSettings.newBuilder()
-                        .setUrl(url)
-                        .build();
+                .setUrl(url)
+                .build();
 
 
         user.sendEmailVerification()
@@ -86,6 +132,8 @@ public class SignUpActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
+                            Intent intent = new Intent(SignUpActivity.this, SignUp2Activity.class);
+                            startActivity(intent);
                             finish();
                         }
                     }
